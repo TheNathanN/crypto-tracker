@@ -1,14 +1,13 @@
-import { useEffect } from 'react';
+import TotalMarketCap from './TotalMarketCap';
+import CoinInfo from './CoinInfo';
 
 import styles from './MainPage.module.scss';
 
 const MainPage = () => {
   return (
-    <main>
-      <div className={styles['market-cap']}>
-        <p>Total Market Cap</p>
-        <p>$2,000,000,000</p>
-      </div>
+    <main className={styles['container']}>
+      <TotalMarketCap />
+      <CoinInfo />
     </main>
   );
 };
