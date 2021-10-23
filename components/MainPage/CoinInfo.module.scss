@@ -1,1 +1,48 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  border-bottom: 1px solid white;
+  padding-bottom: 1rem;
 
+  div {
+    display: flex;
+    margin: 0 0.2rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.7rem;
+    height: 1.5rem;
+  }
+
+  .rank {
+    width: 1rem;
+  }
+
+  .image {
+    width: 1.5rem;
+    img {
+      width: 1.5rem;
+    }
+  }
+
+  .name {
+    width: 5rem;
+  }
+
+  .ticker {
+    width: 2.5rem;
+  }
+
+  .change {
+    width: 3rem;
+  }
+
+  .price {
+    display: flex;
+    width: 7rem;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}

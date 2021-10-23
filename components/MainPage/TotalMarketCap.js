@@ -14,7 +14,6 @@ const TotalMarketCap = () => {
         {
           method: 'GET',
           headers: {
-            'Content-Type': 'application/json',
             'x-rapidapi-host': 'coinranking1.p.rapidapi.com',
             'x-rapidapi-key':
               '380ff21feemsha9f51c492dcb640p191e08jsne1a7b9ee297e',
