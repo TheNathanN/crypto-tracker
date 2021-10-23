@@ -1,5 +1,5 @@
 import TotalMarketCap from './TotalMarketCap';
-import CoinInfo from './CoinInfo';
+import CoinSection from './CoinSection';
 
 import styles from './MainPage.module.scss';
 
@@ -7,7 +7,7 @@ const MainPage = () => {
   return (
     <main className={styles['container']}>
       <TotalMarketCap />
-      <CoinInfo />
+      <CoinSection />
     </main>
   );
 };

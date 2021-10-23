@@ -29,7 +29,11 @@ const TotalMarketCap = () => {
     };
 
     // Call the Function to Fetch Data
-    getStats();
+    try {
+      getStats();
+    } catch (e) {
+      console.log(e);
+    }
   }, [setTotalMarket]);
   return (
     <div className={styles['market-cap']}>

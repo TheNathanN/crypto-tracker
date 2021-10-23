@@ -1,11 +1,10 @@
-import { useEffect, useState } from 'react';
-
 import styles from './CoinInfo.module.scss';
 
-const CoinInfo = () => {
+const CoinInfo = props => {
+  const { coinName } = props;
   return (
     <div className={styles['container']}>
-      <div>Coin Info</div>
+      <div>{coinName}</div>
     </div>
   );
 };
