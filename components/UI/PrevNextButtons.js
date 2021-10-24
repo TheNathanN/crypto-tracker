@@ -1,8 +1,12 @@
+import { useContext } from 'react';
+
+import AppContext from '../../context/app-context';
+
 import styles from './PrevNextButtons.module.scss';
 
-const PrevNextButtons = props => {
+const PrevNextButtons = () => {
   // Import Props
-  const { offsetVal, setOffsetVal } = props;
+  const { offsetVal, setOffsetVal } = useContext(AppContext);
 
   const prevHandler = () => {
     setOffsetVal(offsetVal - 50);
