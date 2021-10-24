@@ -1,8 +1,10 @@
+@import '../../styles/_variables.module.scss';
+
 .container {
   display: flex;
   align-items: center;
   margin: 1rem 1.5rem 0;
-  border-bottom: 1px solid rgb(194, 194, 194);
+  border-bottom: 1px solid var(--border-color);
   padding-bottom: 1rem;
 
   .coin-info,
@@ -30,8 +32,8 @@
 
     .image {
       margin-right: 0.8rem;
-      background-color: rgb(255, 255, 255);
-      box-shadow: 1px 1px 3px rgb(0, 0, 0);
+      background-color: white;
+      box-shadow: 1px 1px 2px lightgrey;
       display: flex;
       justify-content: center;
       align-items: center;
