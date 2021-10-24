@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   margin: 1rem 1.5rem 0;
   border-bottom: 1px solid white;
@@ -8,61 +8,73 @@
 
   div {
     display: flex;
-    margin: 0 0.2rem;
+    width: 1rem;
     align-items: center;
     justify-content: center;
-    text-align: center;
     font-size: 0.7rem;
-    height: 1.5rem;
+    height: 1.1rem;
   }
 
   .rank {
-    width: 1rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
   }
 
   .image {
-    width: 3rem;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-items: center;
-    margin-right: 0.5rem;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 1px 1px 3px rgb(0, 0, 0);
     img {
       width: 1rem;
     }
   }
 
   .name {
-    width: 6rem;
-  }
-
-  .ticker {
-    width: 2.5rem;
+    width: 4rem;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin-right: 0.5rem;
+    text-align: left;
+    height: 100%;
   }
 
-  .change-down {
+  .ticker {
     width: 2rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .change {
+    width: 4rem;
     display: flex;
     justify-content: flex-end;
     align-items: center;
+  }
+
+  .down {
     color: red;
   }
 
-  .change-up {
-    width: 2rem;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+  .up {
     color: green;
   }
 
   .price {
     display: flex;
-    width: 5rem;
+    width: 4rem;
     justify-content: flex-end;
     align-items: center;
+  }
+}
+
+@media only screen and (max-width: 318px) {
+  .container {
+    .name {
+      display: none;
+    }
   }
 }

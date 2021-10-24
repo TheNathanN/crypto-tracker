@@ -27,8 +27,12 @@ const CoinInfo = props => {
       </div>
       <div className={styles['name']}>{name}</div>
       <div className={styles['ticker']}>{symbol}</div>
-      {change < 0 && <div className={styles['change-down']}>{change}%</div>}
-      {change >= 0 && <div className={styles['change-up']}>{change}%</div>}
+      {change < 0 && (
+        <div className={(styles['change'], styles['down'])}>{change}%</div>
+      )}
+      {change >= 0 && (
+        <div className={(styles['change'], styles['up'])}>{change}%</div>
+      )}
       <div className={styles['price']}>{`$${formatPrice(price)}`}</div>
     </div>
   );

@@ -6,6 +6,10 @@ const TotalMarketCap = () => {
   // Local State
   const [totalMarket, setTotalMarket] = useState();
 
+  //Local Variables
+  const HOST_KEY = process.env.COINRANK_HOST;
+  const API_KEY = process.env.COINRANK_KEY;
+
   useEffect(() => {
     // Fetch the Stats Data
     const getStats = async () => {
@@ -14,9 +18,8 @@ const TotalMarketCap = () => {
         {
           method: 'GET',
           headers: {
-            'x-rapidapi-host': 'coinranking1.p.rapidapi.com',
-            'x-rapidapi-key':
-              '380ff21feemsha9f51c492dcb640p191e08jsne1a7b9ee297e',
+            'x-rapidapi-host': HOST_KEY,
+            'x-rapidapi-key': API_KEY,
           },
         }
       );
