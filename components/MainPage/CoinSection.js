@@ -9,6 +9,10 @@ const CoinSection = () => {
   const [coinsData, setCoinsData] = useState();
   const [offsetVal, setOffsetVal] = useState(0);
 
+  //Local Variables
+  const HOST_KEY = process.env.COINRANK_HOST;
+  const API_KEY = process.env.COINRANK_KEY;
+
   useEffect(() => {
     // Fetch Coins Data
     const getCoinsData = async () => {
@@ -17,9 +21,8 @@ const CoinSection = () => {
         {
           method: 'GET',
           headers: {
-            'x-rapidapi-host': 'coinranking1.p.rapidapi.com',
-            'x-rapidapi-key':
-              '380ff21feemsha9f51c492dcb640p191e08jsne1a7b9ee297e',
+            'x-rapidapi-host': HOST_KEY,
+            'x-rapidapi-key': API_KEY,
           },
         }
       );
@@ -30,8 +33,6 @@ const CoinSection = () => {
 
     getCoinsData();
   }, [setCoinsData, offsetVal]);
-
-  console.log(coinsData);
 
   return (
     <div className={styles['container']}>

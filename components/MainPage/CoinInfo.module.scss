@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 1rem;
+  margin: 1rem 1.5rem 0;
   border-bottom: 1px solid white;
   padding-bottom: 1rem;
 
@@ -21,27 +21,47 @@
   }
 
   .image {
-    width: 1.5rem;
+    width: 3rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 0.5rem;
     img {
-      width: 1.5rem;
+      width: 1rem;
     }
   }
 
   .name {
-    width: 5rem;
+    width: 6rem;
   }
 
   .ticker {
     width: 2.5rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-right: 0.5rem;
   }
 
-  .change {
-    width: 3rem;
+  .change-down {
+    width: 2rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: red;
+  }
+
+  .change-up {
+    width: 2rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: green;
   }
 
   .price {
     display: flex;
-    width: 7rem;
+    width: 5rem;
     justify-content: flex-end;
     align-items: center;
   }

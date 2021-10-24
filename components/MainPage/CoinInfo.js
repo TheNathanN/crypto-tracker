@@ -6,6 +6,19 @@ const CoinInfo = props => {
   const { coinInfo } = props;
   const { rank, name, symbol, price, change, type, iconUrl } = coinInfo;
 
+  const formatPrice = price => {
+    const number = Number(price);
+    let formattedPrice;
+
+    if (number > 0.001) {
+      formattedPrice = number.toFixed(2);
+    } else {
+      formattedPrice = number.toFixed(7);
+    }
+
+    return formattedPrice.toLocaleString();
+  };
+
   return (
     <div className={styles['container']}>
       <div className={styles['rank']}>{rank}</div>
@@ -14,8 +27,9 @@ const CoinInfo = props => {
       </div>
       <div className={styles['name']}>{name}</div>
       <div className={styles['ticker']}>{symbol}</div>
-      <div className={styles['change']}>{change}</div>
-      <div className={styles['price']}>{`$${price}`}</div>
+      {change < 0 && <div className={styles['change-down']}>{change}%</div>}
+      {change >= 0 && <div className={styles['change-up']}>{change}%</div>}
+      <div className={styles['price']}>{`$${formatPrice(price)}`}</div>
     </div>
   );
 };
