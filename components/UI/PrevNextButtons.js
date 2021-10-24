@@ -15,7 +15,7 @@ const PrevNextButtons = props => {
   };
 
   return (
-    <div className={styles['buttons-container']}>
+    <div className={styles['container']}>
       <div className={styles['buttons-box']}>
         {offsetVal > 0 && (
           <>
