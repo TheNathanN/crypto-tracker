@@ -4,15 +4,25 @@ const PrevNextButtons = props => {
   // Import Props
   const { offsetVal, setOffsetVal } = props;
 
+  const prevHandler = () => {
+    setOffsetVal(offsetVal - 50);
+    window.scrollTo(0, 0);
+  };
+
+  const nextHandler = () => {
+    setOffsetVal(offsetVal + 50);
+    window.scrollTo(0, 0);
+  };
+
   return (
     <div className={styles['buttons-container']}>
       <div className={styles['buttons-box']}>
         {offsetVal > 0 && (
           <>
-            <button onClick={() => setOffsetVal(offsetVal - 50)}>
+            <button onClick={prevHandler}>
               <i className='fas fa-chevron-left'></i>
             </button>
-            <button onClick={() => setOffsetVal(offsetVal + 50)}>
+            <button onClick={nextHandler}>
               <i className='fas fa-chevron-right'></i>
             </button>
           </>
@@ -24,7 +34,7 @@ const PrevNextButtons = props => {
               display: 'flex',
               justifyContent: 'flex-end',
             }}
-            onClick={() => setOffsetVal(offsetVal + 50)}
+            onClick={nextHandler}
           >
             <i className='fas fa-chevron-right'></i>
           </button>
