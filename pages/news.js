@@ -1,13 +1,13 @@
-import MainPage from '../components/MainPage/MainPage';
+import NewsPage from '../components/NewsPage/NewsPage';
 import MobileMenu from '../components/MobileMenu/MobileMenu';
 
-const Home = () => {
+const News = () => {
   return (
     <div>
-      <MainPage />
+      <NewsPage />
       <MobileMenu />
     </div>
   );
 };
 
-export default Home;
+export default News;
