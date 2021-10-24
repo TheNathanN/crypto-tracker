@@ -35,14 +35,36 @@ const CoinSection = () => {
   }, [setCoinsData, offsetVal]);
 
   return (
-    <div className={styles['container']}>
+    <section className={styles['container']}>
       {coinsData &&
         coinsData.map(coin => <CoinInfo key={coin.id} coinInfo={coin} />)}
-      {offsetVal > 0 && (
-        <button onClick={() => setOffsetVal(offsetVal - 50)}>prev page</button>
-      )}
-      <button onClick={() => setOffsetVal(offsetVal + 50)}>next page</button>
-    </div>
+      <div className={styles['buttons-container']}>
+        <div className={styles['buttons-box']}>
+          {offsetVal > 0 && (
+            <>
+              <button onClick={() => setOffsetVal(offsetVal - 50)}>
+                <i className='fas fa-chevron-left'></i>
+              </button>
+              <button onClick={() => setOffsetVal(offsetVal + 50)}>
+                <i className='fas fa-chevron-right'></i>
+              </button>
+            </>
+          )}
+          {offsetVal <= 0 && (
+            <button
+              style={{
+                width: '100%',
+                display: 'flex',
+                justifyContent: 'flex-end',
+              }}
+              onClick={() => setOffsetVal(offsetVal + 50)}
+            >
+              <i className='fas fa-chevron-right'></i>
+            </button>
+          )}
+        </div>
+      </div>
+    </section>
   );
 };
 

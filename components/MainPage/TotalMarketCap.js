@@ -38,11 +38,11 @@ const TotalMarketCap = () => {
     }
   }, [setTotalMarket]);
   return (
-    <div className={styles['market-cap']}>
+    <section className={styles['market-cap']}>
       <p>Total Market Cap</p>
       {!totalMarket && <p></p>}
       {totalMarket && <p>{`$${Math.round(totalMarket).toLocaleString()}`}</p>}
-    </div>
+    </section>
   );
 };
 
