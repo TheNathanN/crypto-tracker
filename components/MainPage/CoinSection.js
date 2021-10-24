@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import CoinInfo from './CoinInfo';
+import PrevNextButtons from '../UI/PrevNextButtons';
 
 import styles from './CoinSection.module.scss';
 
@@ -36,34 +37,10 @@ const CoinSection = () => {
 
   return (
     <section className={styles['container']}>
+      <PrevNextButtons offsetVal={offsetVal} setOffsetVal={setOffsetVal} />
       {coinsData &&
         coinsData.map(coin => <CoinInfo key={coin.id} coinInfo={coin} />)}
-      <div className={styles['buttons-container']}>
-        <div className={styles['buttons-box']}>
-          {offsetVal > 0 && (
-            <>
-              <button onClick={() => setOffsetVal(offsetVal - 50)}>
-                <i className='fas fa-chevron-left'></i>
-              </button>
-              <button onClick={() => setOffsetVal(offsetVal + 50)}>
-                <i className='fas fa-chevron-right'></i>
-              </button>
-            </>
-          )}
-          {offsetVal <= 0 && (
-            <button
-              style={{
-                width: '100%',
-                display: 'flex',
-                justifyContent: 'flex-end',
-              }}
-              onClick={() => setOffsetVal(offsetVal + 50)}
-            >
-              <i className='fas fa-chevron-right'></i>
-            </button>
-          )}
-        </div>
-      </div>
+      <PrevNextButtons offsetVal={offsetVal} setOffsetVal={setOffsetVal} />
     </section>
   );
 };
