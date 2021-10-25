@@ -1,13 +1,17 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import PrevNextButtons from '../UI/PrevNextButtons';
+import AppContext from '../../context/app-context';
 
 import CoinInfo from './CoinInfo';
 
 import styles from './CoinSection.module.scss';
 
 const CoinSection = () => {
+  // Context - Global State
+  const { offsetVal } = useContext(AppContext);
+
   // Local State
   const [coinsData, setCoinsData] = useState();
-  const [offsetVal, setOffsetVal] = useState(0);
 
   //Local Variables
   const HOST_KEY = process.env.COINRANK_HOST;
@@ -36,12 +40,10 @@ const CoinSection = () => {
 
   return (
     <div className={styles['container']}>
+      <PrevNextButtons />
       {coinsData &&
         coinsData.map(coin => <CoinInfo key={coin.id} coinInfo={coin} />)}
-      {offsetVal > 0 && (
-        <button onClick={() => setOffsetVal(offsetVal - 50)}>prev page</button>
-      )}
-      <button onClick={() => setOffsetVal(offsetVal + 50)}>next page</button>
+      <PrevNextButtons />
     </div>
   );
 };
