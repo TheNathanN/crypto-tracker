@@ -1,9 +1,12 @@
+import NewsSection from './NewsSection';
+
 import styles from './NewsPage.module.scss';
 
 const NewsPage = () => {
   return (
     <div className={styles['container']}>
-      <p>News Page</p>
+      <h1>News</h1>
+      <NewsSection />
     </div>
   );
 };
