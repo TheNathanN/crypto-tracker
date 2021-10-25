@@ -3,9 +3,11 @@ import Image from 'next/image';
 import styles from './CoinInfo.module.scss';
 
 const CoinInfo = props => {
+  // Import Props
   const { coinInfo } = props;
-  const { rank, name, symbol, price, change, type, iconUrl, color } = coinInfo;
+  const { rank, name, symbol, price, change, type, iconUrl } = coinInfo;
 
+  // Functions - Format
   const formatPrice = price => {
     const number = Number(price);
     let formattedPrice;
@@ -19,6 +21,15 @@ const CoinInfo = props => {
     return formattedPrice.toLocaleString();
   };
 
+  const formatTicker = ticker => {
+    const index = ticker.indexOf('*');
+    if (index < 0) {
+      return ticker;
+    } else {
+      return ticker.slice(0, index);
+    }
+  };
+
   return (
     <div className={styles['container']}>
       <section className={styles['coin-info']}>
@@ -27,7 +38,7 @@ const CoinInfo = props => {
           <Image src={iconUrl} width={10} height={10} alt={name} />
         </div>
         <div className={styles['name']}>{name}</div>
-        <div className={styles['ticker']}>{symbol}</div>
+        <div className={styles['ticker']}>{formatTicker(symbol)}</div>
       </section>
       <section className={styles['price-info']}>
         {change < 0 && <div className={styles['down']}>{change}%</div>}
