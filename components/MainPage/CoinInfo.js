@@ -4,7 +4,7 @@ import styles from './CoinInfo.module.scss';
 
 const CoinInfo = props => {
   const { coinInfo } = props;
-  const { rank, name, symbol, price, change, type, iconUrl } = coinInfo;
+  const { rank, name, symbol, price, change, type, iconUrl, color } = coinInfo;
 
   const formatPrice = price => {
     const number = Number(price);

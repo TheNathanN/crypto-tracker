@@ -3,9 +3,14 @@
 .container {
   display: flex;
   align-items: center;
-  margin: 1rem 1.5rem 0;
+  margin: 0 1.5rem;
   border-bottom: 1px solid var(--border-color);
-  padding-bottom: 1rem;
+  padding: 1rem 0;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--hover-color);
+  }
 
   .coin-info,
   .price-info {
@@ -13,7 +18,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.75rem;
+      font-size: 0.8rem;
       height: 1.3rem;
     }
   }
@@ -51,13 +56,16 @@
       width: 5rem;
       text-align: left;
       height: 100%;
+      margin-right: 0.3rem;
+      font-weight: thin;
     }
 
     .ticker {
       display: flex;
-      justify-content: flex-end;
+      justify-content: flex-start;
       width: 3rem;
       height: 100%;
+      font-weight: bold;
     }
   }
 
@@ -71,32 +79,34 @@
       color: red;
       display: flex;
       width: 4rem;
-      justify-content: flex-start;
+      justify-content: flex-end;
       align-items: center;
-      margin-left: 0.3rem;
+      margin-right: 0.3rem;
     }
 
     .up {
       color: green;
       display: flex;
       width: 4rem;
-      justify-content: flex-start;
+      justify-content: flex-end;
       align-items: center;
-      margin-left: 0.3rem;
+      margin-right: 0.3rem;
     }
 
     .price {
       display: flex;
       justify-content: flex-end;
-      width: 5rem;
+      width: 6rem;
     }
   }
 }
 
 @media only screen and (max-width: 318px) {
   .container {
-    .name {
-      display: none;
+    .coin-info {
+      .name {
+        display: none;
+      }
     }
   }
 }
