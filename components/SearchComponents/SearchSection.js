@@ -12,7 +12,7 @@ const SearchSection = () => {
   // Local State
   const [searchInput, setSearchInput] = useState('');
   const [coinsData, setCoinsData] = useState();
-  const [totalCoinCount, setTotalCoinCount] = useState(1);
+  const [totalCoinCount, setTotalCoinCount] = useState();
 
   //Local Variables
   const HOST_KEY = process.env.COINRANK_HOST;
@@ -64,7 +64,6 @@ const SearchSection = () => {
   }, [setCoinsData, setTotalCoinCount]);
 
   console.log(coinsData);
-  console.log(totalCoinCount);
 
   return (
     <section className={styles['container']}>
