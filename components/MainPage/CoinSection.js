@@ -14,16 +14,14 @@ const CoinSection = () => {
   // Local State
   const [coinsData, setCoinsData] = useState();
 
-  // //Local Variables
-  const _END_POINT = 'offset';
-
   useEffect(() => {
+    const _END_POINT = 'offset';
     try {
       getCoinsData(_END_POINT, offsetVal, setCoinsData);
     } catch (error) {
       console.log(error);
     }
-  }, [getCoinsData, offsetVal, _END_POINT]);
+  }, [getCoinsData, offsetVal]);
 
   return (
     <section className={styles['container']}>

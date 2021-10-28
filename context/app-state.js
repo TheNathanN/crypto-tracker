@@ -6,15 +6,6 @@ const AppState = props => {
   const [offsetVal, setOffsetVal] = useState(0); // Controls which tokens are fetched from api
   const [searchMode, setSearchMode] = useState(false); // Should be false as default
   const [selectedCoin, setSelectedCoin] = useState();
-  const [totalCoinCount, setTotalCoinCount] = useState();
-
-  useEffect(() => {
-    try {
-      getStats(setTotalCoinCount, '_TOTAL_COINS');
-    } catch (error) {
-      console.log(error);
-    }
-  }, [setTotalCoinCount]);
 
   return (
     <AppContext.Provider
@@ -25,7 +16,6 @@ const AppState = props => {
         setSearchMode,
         selectedCoin,
         setSelectedCoin,
-        totalCoinCount,
       }}
     >
       {props.children}

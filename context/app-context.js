@@ -6,7 +6,6 @@ let searchMode;
 let setSearchMode;
 let selectedCoin;
 let setSelectedCoin;
-let totalCoinCount;
 
 const AppContext = createContext({
   offsetVal,
@@ -15,7 +14,6 @@ const AppContext = createContext({
   setSearchMode,
   selectedCoin,
   setSelectedCoin,
-  totalCoinCount,
 });
 
 export default AppContext;

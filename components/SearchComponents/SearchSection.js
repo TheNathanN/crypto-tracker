@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect } from 'react';
 import AppContext from '../../context/app-context';
-import { getStats, getCoinsData } from '../../helpers/data-fetchers';
+import { getCoinsData } from '../../helpers/data-fetchers';
 
 import SearchResult from './SearchResult';
 
@@ -8,16 +8,10 @@ import styles from './SearchSection.module.scss';
 
 const SearchSection = () => {
   // Context / Global State
-  const { setSearchMode, setSelectedCoin, totalCoinCount } =
-    useContext(AppContext);
+  const { setSearchMode, setSelectedCoin } = useContext(AppContext);
 
   // Local State
   const [searchInput, setSearchInput] = useState('');
-  const [coinsData, setCoinsData] = useState();
-
-  useEffect(() => {
-    console.log(totalCoinCount);
-  }, [totalCoinCount]);
 
   return (
     <section className={styles['container']}>
