@@ -6,6 +6,6 @@ module.exports = {
   env: {
     COINRANK_HOST: process.env.COINRANK_HOST,
     COINRANK_KEY: process.env.COINRANK_KEY,
-    COINRANK_SEARCH: process.env.COINRANK_SEARCH,
+    BING_HOST: process.env.BING_HOST,
   },
 };

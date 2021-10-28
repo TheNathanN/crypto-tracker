@@ -5,7 +5,6 @@ const News = () => {
   return (
     <div>
       <NewsPage />
-      <MobileMenu />
     </div>
   );
 };

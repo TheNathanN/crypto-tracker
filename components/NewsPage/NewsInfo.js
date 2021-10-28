@@ -3,11 +3,11 @@ import styles from './NewsInfo.module.scss';
 const NewsInfo = props => {
   // Import Props from NewsSection
   const { articleData } = props;
-  const { title, url } = articleData;
+  const { name } = articleData;
 
   return (
     <div className={styles['container']}>
-      <p>{title}</p>
+      <p>{name}</p>
     </div>
   );
 };

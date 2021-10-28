@@ -1,6 +1,7 @@
 //Local Variables
 const HOST_KEY = process.env.COINRANK_HOST;
 const API_KEY = process.env.COINRANK_KEY;
+const BING_HOST = process.env.BING_HOST;
 
 // Fetch Coins Data
 export const getCoinsData = async (endpoint, value, state) => {
@@ -15,7 +16,7 @@ export const getCoinsData = async (endpoint, value, state) => {
     }
   );
   const resData = await response.json();
-  state(await resData.data.coins);
+  state(resData.data.coins);
 };
 
 // Fetch the Stats Data
@@ -35,7 +36,7 @@ export const getStats = async (state, dataWanted) => {
     },
   });
 
-  // Set Stats Data State
+  // Set State of Data
   const resData = await response.json();
 
   const {
@@ -57,4 +58,22 @@ export const getStats = async (state, dataWanted) => {
   } else if (dataWanted === _markets) {
     state(totalMarkets);
   }
+};
+
+// Fetch News Data
+export const getNewsData = async (offset, state) => {
+  const response = await fetch(
+    `https://bing-news-search1.p.rapidapi.com/news/search?q=cryptocurrency&freshness=Day&textFormat=Raw&safeSearch=Off&offset=${offset}`,
+    {
+      method: 'GET',
+      headers: {
+        'x-bingapis-sdk': 'true',
+        'x-rapidapi-host': BING_HOST,
+        'x-rapidapi-key': API_KEY,
+      },
+    }
+  );
+
+  const resData = await response.json();
+  state(resData.value);
 };
