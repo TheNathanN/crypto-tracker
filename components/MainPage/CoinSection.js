@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from 'react';
 import PrevNextButtons from '../UI/PrevNextButtons';
 import AppContext from '../../context/app-context';
+import { getCoinsData } from '../../helpers/data-fetchers';
 
 import CoinInfo from './CoinInfo';
 
@@ -13,34 +14,16 @@ const CoinSection = () => {
   // Local State
   const [coinsData, setCoinsData] = useState();
 
-  //Local Variables
-  const HOST_KEY = process.env.COINRANK_HOST;
-  const API_KEY = process.env.COINRANK_KEY;
+  // //Local Variables
+  const _END_POINT = 'offset';
 
   useEffect(() => {
-    // Fetch Coins Data
-    const getCoinsData = async () => {
-      const response = await fetch(
-        `https://coinranking1.p.rapidapi.com/coins?offset=${offsetVal}`,
-        {
-          method: 'GET',
-          headers: {
-            'x-rapidapi-host': HOST_KEY,
-            'x-rapidapi-key': API_KEY,
-          },
-        }
-      );
-      const resData = await response.json();
-      const fetchedData = await resData.data.coins;
-      setCoinsData(await fetchedData);
-    };
-
     try {
-      getCoinsData();
-    } catch (e) {
-      console.log(e);
+      getCoinsData(_END_POINT, offsetVal, setCoinsData);
+    } catch (error) {
+      console.log(error);
     }
-  }, [setCoinsData, offsetVal]);
+  }, [getCoinsData, offsetVal, _END_POINT]);
 
   return (
     <section className={styles['container']}>
