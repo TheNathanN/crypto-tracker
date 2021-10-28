@@ -1,4 +1,7 @@
 import Head from 'next/head';
+
+import SearchSection from '../components/SearchComponents/SearchSection';
+import MobileMenu from '../components/MobileMenu/MobileMenu';
 import AppState from '../context/app-state';
 
 import '../styles/globals.scss';
@@ -22,6 +25,7 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <AppState>
         <Component {...pageProps} />
+        <MobileMenu />
       </AppState>
     </>
   );

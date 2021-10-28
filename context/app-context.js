@@ -1,15 +1,19 @@
 import { createContext } from 'react';
 
-let selectedCoin;
-let setSelectedCoin;
 let offsetVal;
 let setOffsetVal;
+let searchMode;
+let setSearchMode;
+let selectedCoin;
+let setSelectedCoin;
 
 const AppContext = createContext({
-  selectedCoin,
-  setSelectedCoin,
   offsetVal,
   setOffsetVal,
+  searchMode,
+  setSearchMode,
+  selectedCoin,
+  setSelectedCoin,
 });
 
 export default AppContext;

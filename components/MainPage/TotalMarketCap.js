@@ -26,8 +26,8 @@ const TotalMarketCap = () => {
 
       // Set Stats Data State
       const resData = await response.json();
-      const { totalMarketCap } = resData.data;
-      setTotalMarket(totalMarketCap);
+      const { totalMarketCap } = await resData.data;
+      setTotalMarket(await totalMarketCap);
     };
 
     // Call the Function to Fetch Data

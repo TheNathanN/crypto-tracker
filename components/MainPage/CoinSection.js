@@ -31,20 +31,24 @@ const CoinSection = () => {
         }
       );
       const resData = await response.json();
-      const fetchedData = resData.data.coins;
-      setCoinsData(fetchedData);
+      const fetchedData = await resData.data.coins;
+      setCoinsData(await fetchedData);
     };
 
-    getCoinsData();
+    try {
+      getCoinsData();
+    } catch (e) {
+      console.log(e);
+    }
   }, [setCoinsData, offsetVal]);
 
   return (
-    <div className={styles['container']}>
+    <section className={styles['container']}>
       <PrevNextButtons />
       {coinsData &&
         coinsData.map(coin => <CoinInfo key={coin.id} coinInfo={coin} />)}
       <PrevNextButtons />
-    </div>
+    </section>
   );
 };
 
