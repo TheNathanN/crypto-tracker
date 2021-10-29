@@ -7,20 +7,19 @@ import styles from './MobileMenu.module.scss';
 
 const MobileMenu = () => {
   // Context / Global State
-  const { setOffsetVal } = useContext(AppContext);
+  const { setOffsetVal, setNewsOffset } = useContext(AppContext);
 
   // Router
   const router = useRouter();
+  const homeRoute = '/';
   const newsRoute = '/news';
   const calcRoute = '/calc';
 
   // onClick Handlers
   const onClickHandler = route => {
-    router.push(route);
-  };
-  const onHomeHandler = () => {
     setOffsetVal(0);
-    onClickHandler('/');
+    setNewsOffset(0);
+    router.push(route);
   };
 
   return (
@@ -29,7 +28,7 @@ const MobileMenu = () => {
         className='fas fa-newspaper'
         onClick={() => onClickHandler(newsRoute)}
       ></i>
-      <i className='fas fa-home' onClick={onHomeHandler}></i>
+      <i className='fas fa-home' onClick={() => onClickHandler(homeRoute)}></i>
       <i
         className='fas fa-calculator'
         onClick={() => onClickHandler(calcRoute)}

@@ -63,7 +63,7 @@ export const getStats = async (state, dataWanted) => {
 // Fetch News Data
 export const getNewsData = async (offset, state) => {
   const response = await fetch(
-    `https://bing-news-search1.p.rapidapi.com/news/search?q=cryptocurrency&freshness=Day&textFormat=Raw&safeSearch=Off&offset=${offset}`,
+    `https://bing-news-search1.p.rapidapi.com/news/search?q=crypto&freshness=Day&textFormat=Raw&safeSearch=Off&offset=${offset}`,
     {
       method: 'GET',
       headers: {
@@ -75,5 +75,6 @@ export const getNewsData = async (offset, state) => {
   );
 
   const resData = await response.json();
+  console.log(resData.value);
   state(resData.value);
 };

@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { useRouter } from 'next/router';
 
 import AppContext from '../../context/app-context';
 
@@ -6,22 +7,41 @@ import styles from './PrevNextButtons.module.scss';
 
 const PrevNextButtons = () => {
   // Import Props
-  const { offsetVal, setOffsetVal } = useContext(AppContext);
+  const { offsetVal, setOffsetVal, newsOffset, setNewsOffset } =
+    useContext(AppContext);
 
+  // Router
+  const router = useRouter();
+
+  // Handler Functions
   const prevHandler = () => {
-    setOffsetVal(offsetVal - 50);
-    window.scrollTo(0, 0);
+    if (router.route === '/') {
+      setOffsetVal(offsetVal - 50);
+      window.scrollTo(0, 0);
+    }
+
+    if (router.route === '/news') {
+      setNewsOffset(newsOffset - 10);
+      window.scrollTo(0, 0);
+    }
   };
 
   const nextHandler = () => {
-    setOffsetVal(offsetVal + 50);
-    window.scrollTo(0, 0);
+    if (router.route === '/') {
+      setOffsetVal(offsetVal + 50);
+      window.scrollTo(0, 0);
+    }
+
+    if (router.route === '/news') {
+      setNewsOffset(newsOffset + 10);
+      window.scrollTo(0, 0);
+    }
   };
 
   return (
     <div className={styles['container']}>
       <div className={styles['buttons-box']}>
-        {offsetVal > 0 && (
+        {(offsetVal > 0 || newsOffset > 0) && (
           <>
             <button onClick={prevHandler}>
               <i className='fas fa-chevron-left'></i>
@@ -31,7 +51,7 @@ const PrevNextButtons = () => {
             </button>
           </>
         )}
-        {offsetVal <= 0 && (
+        {offsetVal <= 0 && newsOffset <= 0 && (
           <button
             style={{
               width: '100%',
