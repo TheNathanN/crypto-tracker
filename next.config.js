@@ -1,7 +1,7 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ['cdn.coinranking.com'],
+    domains: ['cdn.coinranking.com', 'www.bing.com'],
   },
   env: {
     COINRANK_HOST: process.env.COINRANK_HOST,

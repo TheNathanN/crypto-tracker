@@ -24,12 +24,17 @@ const CoinSection = () => {
   }, [getCoinsData, offsetVal]);
 
   return (
-    <section className={styles['container']}>
+    <>
       <PrevNextButtons />
-      {coinsData &&
-        coinsData.map(coin => <CoinInfo key={coin.id} coinInfo={coin} />)}
+      <section
+        className={styles['container']}
+        style={{ height: !coinsData ? '100vh' : '100%' }}
+      >
+        {coinsData &&
+          coinsData.map(coin => <CoinInfo key={coin.id} coinInfo={coin} />)}
+      </section>
       <PrevNextButtons />
-    </section>
+    </>
   );
 };
 

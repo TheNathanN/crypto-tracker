@@ -17,7 +17,10 @@ const NewsPage = () => {
   return (
     <div className={styles['container']}>
       <h1>News</h1>
-      <div className={styles['articles-container']}>
+      <div
+        className={styles['articles-container']}
+        style={{ height: !newsData ? '100vh' : '100%' }}
+      >
         {newsData &&
           newsData.map(article => (
             <NewsInfo key={article.name} articleData={article} />
