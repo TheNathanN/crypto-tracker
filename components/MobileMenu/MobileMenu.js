@@ -29,10 +29,10 @@ const MobileMenu = () => {
         onClick={() => onClickHandler(newsRoute)}
       ></i>
       <i className='fas fa-home' onClick={() => onClickHandler(homeRoute)}></i>
-      <i
+      {/* <i
         className='fas fa-calculator'
         onClick={() => onClickHandler(calcRoute)}
-      ></i>
+      ></i> */}
     </div>
   );
 };
