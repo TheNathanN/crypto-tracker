@@ -10,7 +10,7 @@ const NewsInfo = props => {
 
   return (
     <div className={styles['container']}>
-      <Image src={contentUrl} alt={name} width={110} height={110} />
+      <Image src={contentUrl} alt={name} width={120} height={120} />
       <p>{name}</p>
     </div>
   );

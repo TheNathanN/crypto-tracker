@@ -1,6 +1,6 @@
 .container {
-  width: 18rem;
-  height: 8rem;
+  width: 23rem;
+  height: 10rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,14 +11,20 @@
 
   &:hover {
     color: grey;
+    p {
+      border-left: 1px solid grey;
+    }
   }
 
   p {
-    font-size: 0.9rem;
+    font-size: 1rem;
     display: flex;
     align-items: center;
     height: 100%;
     width: 100%;
     margin-left: 1rem;
+    padding-left: 1rem;
+    border-left: 1px solid white;
+    height: 80%;
   }
 }
