@@ -1,12 +1,12 @@
-@import '../../styles/_variables.module.scss';
+@import '../../styles/variables.module';
 
 .container {
   padding: 0.5rem 0rem;
   margin-top: 1rem;
   display: flex;
   justify-content: flex-end;
-  border-top: 1px solid var(--border-color);
-  border-bottom: 1px solid var(--border-color);
+  border-top: 2px solid var(--border-color);
+  border-bottom: 2px solid var(--border-color);
 
   .buttons-box {
     display: flex;

@@ -18,8 +18,6 @@ const NewsPage = () => {
     getNewsData(newsOffset, setNewsData);
   }, [getNewsData, setNewsData, newsOffset]);
 
-  console.log(newsData);
-
   return (
     <div className={styles['container']}>
       <h1>News</h1>

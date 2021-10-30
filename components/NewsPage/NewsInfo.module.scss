@@ -29,3 +29,14 @@
     height: 80%;
   }
 }
+
+@media only screen and (max-width: 465px) {
+  .container {
+    width: 90%;
+
+    p {
+      font-size: .8rem;
+      font-weight: bold;
+    }
+  }
+}
