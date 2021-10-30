@@ -24,11 +24,11 @@ const MobileMenu = () => {
 
   return (
     <div className={styles['container']}>
+      <i className='fas fa-home' onClick={() => onClickHandler(homeRoute)}></i>
       <i
         className='fas fa-newspaper'
         onClick={() => onClickHandler(newsRoute)}
       ></i>
-      <i className='fas fa-home' onClick={() => onClickHandler(homeRoute)}></i>
       {/* <i
         className='fas fa-calculator'
         onClick={() => onClickHandler(calcRoute)}
