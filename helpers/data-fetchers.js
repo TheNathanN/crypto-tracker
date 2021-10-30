@@ -75,6 +75,5 @@ export const getNewsData = async (offset, state) => {
   );
 
   const resData = await response.json();
-  console.log(resData.value);
   state(resData.value);
 };

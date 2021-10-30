@@ -14,6 +14,7 @@ const CoinSection = () => {
   // Local State
   const [coinsData, setCoinsData] = useState();
 
+  // Fetch Data
   useEffect(() => {
     const _END_POINT = 'offset';
     try {
@@ -21,6 +22,8 @@ const CoinSection = () => {
     } catch (error) {
       console.log(error);
     }
+
+    return () => setCoinsData();
   }, [getCoinsData, offsetVal]);
 
   return (

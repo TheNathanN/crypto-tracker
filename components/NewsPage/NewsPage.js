@@ -11,11 +11,13 @@ const NewsPage = () => {
   // Context / Global State
   const { newsOffset } = useContext(AppContext);
 
-  //Local State
+  // Local State
   const [newsData, setNewsData] = useState();
 
+  // Fetch Data
   useEffect(() => {
     getNewsData(newsOffset, setNewsData);
+    return () => setNewsData();
   }, [getNewsData, setNewsData, newsOffset]);
 
   return (
