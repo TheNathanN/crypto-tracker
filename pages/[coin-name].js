@@ -1,7 +1,9 @@
+import ErrorPage from './404';
+
 const Coin = () => {
   return (
     <div>
-      <div></div>
+      <ErrorPage />
     </div>
   );
 };
