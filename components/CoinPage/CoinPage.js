@@ -2,9 +2,9 @@ import styles from './CoinPage.module.scss';
 
 const CoinPage = () => {
   return (
-    <div className={styles['container']}>
-      <div></div>
-    </div>
+    <main className={styles['container']}>
+      <div>Coin Page</div>
+    </main>
   );
 };
 
