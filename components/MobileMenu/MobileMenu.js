@@ -13,7 +13,6 @@ const MobileMenu = () => {
   const router = useRouter();
   const homeRoute = '/';
   const newsRoute = '/news';
-  const calcRoute = '/calc';
 
   // onClick Handlers
   const onClickHandler = route => {
@@ -29,10 +28,6 @@ const MobileMenu = () => {
         className='fas fa-newspaper'
         onClick={() => onClickHandler(newsRoute)}
       ></i>
-      {/* <i
-        className='fas fa-calculator'
-        onClick={() => onClickHandler(calcRoute)}
-      ></i> */}
     </div>
   );
 };

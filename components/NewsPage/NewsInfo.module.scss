@@ -4,16 +4,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid white;
+  border: 2px solid var(--border-color);
   margin: 1rem;
   padding: 0 1rem;
   cursor: pointer;
 
   &:hover {
-    color: grey;
-    border: 2px solid grey;
+    color: var(--hover-color);
+    border: 2px solid var(--hover-color);
     p {
-      border-left: 1px solid grey;
+      border-left: 1px solid var(--hover-color);
     }
   }
 
@@ -25,7 +25,7 @@
     width: 100%;
     margin-left: 1rem;
     padding-left: 1rem;
-    border-left: 1px solid white;
+    border-left: 1px solid var(--border-color);
     height: 80%;
   }
 }
