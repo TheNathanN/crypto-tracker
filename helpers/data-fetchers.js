@@ -3,6 +3,26 @@ const HOST_KEY = process.env.COINRANK_HOST;
 const API_KEY = process.env.COINRANK_KEY;
 const BING_HOST = process.env.BING_HOST;
 
+// Fetch Single Coin Data
+export const getCoinData = async (id, state) => {
+  if (id) {
+    const response = await fetch(
+      `https://coinranking1.p.rapidapi.com/coin/${id}`,
+      {
+        method: 'GET',
+        headers: {
+          'x-rapidapi-host': HOST_KEY,
+          'x-rapidapi-key': API_KEY,
+        },
+      }
+    );
+    const resData = await response.json();
+    state(resData);
+  } else {
+    return;
+  }
+};
+
 // Fetch Coins Data
 export const getCoinsData = async (endpoint, value, state) => {
   const response = await fetch(

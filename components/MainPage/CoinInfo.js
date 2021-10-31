@@ -1,13 +1,16 @@
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 import styles from './CoinInfo.module.scss';
 
 const CoinInfo = props => {
+  const router = useRouter();
+
   // Import Props
   const { coinInfo } = props;
-  const { rank, name, symbol, price, change, type, iconUrl } = coinInfo;
+  const { id, rank, name, symbol, price, change, type, iconUrl } = coinInfo;
 
-  // Functions - Format
+  // Format Functions
   const formatPrice = price => {
     const number = Number(price);
     let formattedPrice;
@@ -30,8 +33,14 @@ const CoinInfo = props => {
     }
   };
 
+  // onClick Functions
+
+  const clickHandler = () => {
+    router.push(`/${id}`);
+  };
+
   return (
-    <div className={styles['container']}>
+    <div className={styles['container']} onClick={clickHandler}>
       <section className={styles['coin-info']}>
         <div className={styles['rank']}>{rank}</div>
         <div className={styles['image']}>
