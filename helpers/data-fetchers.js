@@ -23,6 +23,26 @@ export const getCoinData = async (id, state) => {
   }
 };
 
+// Fetch Single Coin Price History
+export const getCoinHistory = async (id, timePeriod, state) => {
+  if (id) {
+    const response = await fetch(
+      `https://coinranking1.p.rapidapi.com/coin/${id}/history/${timePeriod}`,
+      {
+        method: 'GET',
+        headers: {
+          'x-rapidapi-host': HOST_KEY,
+          'x-rapidapi-key': API_KEY,
+        },
+      }
+    );
+    const resData = await response.json();
+    state(resData.data);
+  } else {
+    return;
+  }
+};
+
 // Fetch Coins Data
 export const getCoinsData = async (endpoint, value, state) => {
   const response = await fetch(
