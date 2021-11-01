@@ -1,4 +1,5 @@
-import { Line } from 'react-chartjs-2';
+import CoinChart from '../UI/CoinChart';
+import { formatPrice, formatTicker } from '../../hooks/customHooks';
 
 import styles from './CoinPage.module.scss';
 
@@ -26,6 +27,7 @@ const CoinPage = props => {
   return (
     <main className={styles['container']}>
       <h1>{name}</h1>
+      <CoinChart historyData={history} />
     </main>
   );
 };

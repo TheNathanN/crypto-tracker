@@ -17,6 +17,7 @@ const CoinSection = () => {
   // Fetch Data
   useEffect(() => {
     const _END_POINT = 'offset';
+
     try {
       getCoinsData(_END_POINT, offsetVal, setCoinsData);
     } catch (error) {

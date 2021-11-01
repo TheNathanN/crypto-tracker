@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import { formatPrice, formatTicker } from '../../hooks/customHooks';
 
 import styles from './CoinInfo.module.scss';
 
@@ -10,31 +11,7 @@ const CoinInfo = props => {
   const { coinInfo } = props;
   const { id, rank, name, symbol, price, change, type, iconUrl } = coinInfo;
 
-  // Format Functions
-  const formatPrice = price => {
-    const number = Number(price);
-    let formattedPrice;
-
-    if (number > 0.001) {
-      formattedPrice = number.toFixed(2);
-    } else {
-      formattedPrice = number.toFixed(8);
-    }
-
-    return formattedPrice.toLocaleString();
-  };
-
-  const formatTicker = ticker => {
-    const index = ticker.indexOf('*');
-    if (index < 0) {
-      return ticker;
-    } else {
-      return ticker.slice(0, index);
-    }
-  };
-
   // onClick Functions
-
   const clickHandler = () => {
     router.push(`/${id}`);
   };
