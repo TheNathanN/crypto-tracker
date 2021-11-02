@@ -15,8 +15,8 @@ const CoinChart = props => {
   // Function to fill labels array
   const createTimeLabels = data => {
     const date = new Date(data);
-    const dateString = date.toLocaleDateString('en-US');
-    const timeString = date.toLocaleTimeString('en-US');
+    const dateString = date.toLocaleDateString();
+    const timeString = date.toLocaleTimeString();
     return `${dateString}, ${timeString}`;
   };
 
@@ -44,6 +44,7 @@ const CoinChart = props => {
     setPriceLabels(priceLabelsData);
   }, [data, setTimeLabels]);
 
+  // The finished chart object
   const chartData = {
     labels: timeLabels,
     datasets: [
@@ -56,7 +57,7 @@ const CoinChart = props => {
   };
 
   return (
-    <div>
+    <div className={styles['container']}>
       <div>Coin Chart</div>
       {timeLabels && priceLabels && (
         <Line height={200} width={400} data={chartData} />
