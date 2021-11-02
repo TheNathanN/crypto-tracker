@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { formatPrice } from '../../hooks/customHooks';
+import { formatPrice, createTimeLabels } from '../../hooks/customHooks';
 import { Line } from 'react-chartjs-2';
 
 import styles from './CoinChart.module.scss';
@@ -12,22 +12,14 @@ const CoinChart = props => {
   const [timeLabels, setTimeLabels] = useState();
   const [priceLabels, setPriceLabels] = useState();
 
-  // Function to fill labels array
-  const createTimeLabels = data => {
-    const date = new Date(data);
-    const dateString = date.toLocaleDateString();
-    const timeString = date.toLocaleTimeString();
-    return `${dateString}, ${timeString}`;
-  };
-
   useEffect(() => {
-    // Local Arrays for Chart Labels & Data
+    // Local Arrays for Chart Data
     const timeLabelsData = [];
     const priceLabelsData = [];
 
     // Loop through the data and push it into the local arrays above.
     if (data) {
-      for (let i = 0; i <= data?.length; i++) {
+      for (let i = 0; i <= data?.length; i += 10) {
         const timeData = data[i]?.timestamp;
         const priceData = data[i]?.price;
         if (timeData) {

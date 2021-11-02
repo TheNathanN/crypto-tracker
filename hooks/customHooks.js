@@ -20,3 +20,10 @@ export const formatTicker = ticker => {
     return ticker.slice(0, index);
   }
 };
+
+export const createTimeLabels = data => {
+  const date = new Date(data);
+  const dateString = date.toLocaleDateString();
+  const timeString = date.toLocaleTimeString();
+  return `${dateString}, ${timeString}`;
+};
