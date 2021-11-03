@@ -53,7 +53,7 @@ const CoinChart = props => {
   return (
     <div className={styles['container']}>
       {timeLabels && priceLabels && (
-        <Line height={'100%'} width={'100%'} data={chartData} />
+        <Line height={'5rem'} width={'10rem'} data={chartData} />
       )}
     </div>
   );

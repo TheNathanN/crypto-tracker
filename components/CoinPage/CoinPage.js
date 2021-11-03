@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import CoinChart from '../UI/CoinChart';
+import CoinChart from './CoinChart';
 import { formatPrice, formatTicker } from '../../hooks/customHooks';
 import { getCoinHistory } from '../../helpers/data-fetchers';
 
