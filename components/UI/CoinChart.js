@@ -19,7 +19,7 @@ const CoinChart = props => {
 
     // Loop through the data and push it into the arrays above.
     if (data) {
-      for (let i = 0; i <= data?.length; i += 10) {
+      for (let i = 0; i <= data?.length - 1; i += 3) {
         const timeData = data[i]?.timestamp;
         const priceData = data[i]?.price;
         if (timeData) {
@@ -44,15 +44,16 @@ const CoinChart = props => {
         label: 'price',
         data: priceLabels,
         borderColor: 'red',
+        pointBackgroundColor: 'transparent',
+        pointBorderColor: 'transparent',
       },
     ],
   };
 
   return (
     <div className={styles['container']}>
-      <div>Coin Chart</div>
       {timeLabels && priceLabels && (
-        <Line height={200} width={400} data={chartData} />
+        <Line height={'100%'} width={'100%'} data={chartData} />
       )}
     </div>
   );
