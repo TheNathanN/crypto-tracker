@@ -47,22 +47,12 @@ const CoinPage = props => {
   return (
     <main className={styles['container']}>
       <h1>{name}</h1>
-      <select
-        name='time'
-        id='time'
-        defaultValue={timePeriod}
-        onChange={e => setTimePeriod(e.target.value)}
-      >
-        {timeOptions.map(time => (
-          <option value={time} key={time}>
-            {time}
-          </option>
-        ))}
-      </select>
       <CoinChart
         coinHistory={coinHistory}
         currentPrice={price}
         coinName={name}
+        timePeriod={timePeriod}
+        setTimePeriod={setTimePeriod}
       />
     </main>
   );

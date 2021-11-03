@@ -21,11 +21,18 @@ const formatTicker = ticker => {
   }
 };
 
-const createTimeLabels = data => {
+const createTimeLabels = (data, chartContext) => {
   const date = new Date(data);
   const dateString = date.toLocaleDateString();
   const timeString = date.toLocaleTimeString();
-  return `${timeString}`;
+
+  if (chartContext === '24h') {
+    return `${timeString.replace(':00', '')}`;
+  } else if (chartContext === '7d' || chartContext === '30d') {
+    return `${dateString.slice(0, -5)}`;
+  } else {
+    return `${dateString}`;
+  }
 };
 
 // Export Functions
