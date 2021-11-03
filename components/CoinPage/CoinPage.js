@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import CoinChart from './CoinChart';
-import { formatPrice, formatTicker } from '../../hooks/customHooks';
+import { formatPrice, formatTicker } from '../../helpers/helperFunctions';
 import { getCoinHistory } from '../../helpers/data-fetchers';
 
 import styles from './CoinPage.module.scss';

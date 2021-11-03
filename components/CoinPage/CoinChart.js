@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { formatPrice, createTimeLabels } from '../../hooks/customHooks';
+import { formatPrice, createTimeLabels } from '../../helpers/helperFunctions';
 import { Line } from 'react-chartjs-2';
 
 import styles from './CoinChart.module.scss';
@@ -46,6 +46,9 @@ const CoinChart = props => {
         borderColor: 'red',
         pointBackgroundColor: 'transparent',
         pointBorderColor: 'transparent',
+        pointHoverBackgroundColor: 'red',
+        pointHoverBorderColor: 'red',
+        pointBorderWidth: 20,
       },
     ],
   };
@@ -53,7 +56,7 @@ const CoinChart = props => {
   return (
     <div className={styles['container']}>
       {timeLabels && priceLabels && (
-        <Line height={'5rem'} width={'10rem'} data={chartData} />
+        <Line data={chartData} options={{ maintainAspectRatio: false }} />
       )}
     </div>
   );

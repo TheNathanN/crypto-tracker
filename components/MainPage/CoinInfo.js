@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { formatPrice, formatTicker } from '../../hooks/customHooks';
+import { formatPrice, formatTicker } from '../../helpers/helperFunctions';
 
 import styles from './CoinInfo.module.scss';
 
