@@ -4,7 +4,7 @@ const API_KEY = process.env.COINRANK_KEY;
 const BING_HOST = process.env.BING_HOST;
 
 // Fetch Single Coin Data
-export const getCoinData = async (id, state) => {
+const getCoinData = async (id, state) => {
   if (id) {
     const response = await fetch(
       `https://coinranking1.p.rapidapi.com/coin/${id}`,
@@ -24,7 +24,7 @@ export const getCoinData = async (id, state) => {
 };
 
 // Fetch Single Coin Price History
-export const getCoinHistory = async (id, timePeriod, state) => {
+const getCoinHistory = async (id, timePeriod, state) => {
   if (id) {
     const response = await fetch(
       `https://coinranking1.p.rapidapi.com/coin/${id}/history/${timePeriod}`,
@@ -44,7 +44,7 @@ export const getCoinHistory = async (id, timePeriod, state) => {
 };
 
 // Fetch Coins Data
-export const getCoinsData = async (endpoint, value, state) => {
+const getCoinsData = async (endpoint, value, state) => {
   const response = await fetch(
     `https://coinranking1.p.rapidapi.com/coins?${endpoint}=${value}`,
     {
@@ -60,7 +60,7 @@ export const getCoinsData = async (endpoint, value, state) => {
 };
 
 // Fetch the Stats Data
-export const getStats = async (state, dataWanted) => {
+const getStats = async (state, dataWanted) => {
   // Only Arguments that dataWanted should be
   const _volume = '_VOLUME';
   const _totalCoins = '_TOTAL_COINS';
@@ -101,7 +101,7 @@ export const getStats = async (state, dataWanted) => {
 };
 
 // Fetch News Data
-export const getNewsData = async (offset, state) => {
+const getNewsData = async (offset, state) => {
   const response = await fetch(
     `https://bing-news-search1.p.rapidapi.com/news/search?q=crypto&freshness=Day&textFormat=Raw&safeSearch=Off&offset=${offset}`,
     {
@@ -117,3 +117,6 @@ export const getNewsData = async (offset, state) => {
   const resData = await response.json();
   state(resData.value);
 };
+
+// Export Functions
+export { getNewsData, getCoinsData, getCoinHistory, getCoinData, getStats };

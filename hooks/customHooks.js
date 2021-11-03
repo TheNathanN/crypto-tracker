@@ -1,5 +1,5 @@
 // Format Functions
-export const formatPrice = price => {
+const formatPrice = price => {
   const number = Number(price);
   let formattedPrice;
 
@@ -12,7 +12,7 @@ export const formatPrice = price => {
   return formattedPrice.toLocaleString();
 };
 
-export const formatTicker = ticker => {
+const formatTicker = ticker => {
   const index = ticker.indexOf('*');
   if (index < 0) {
     return ticker;
@@ -21,9 +21,12 @@ export const formatTicker = ticker => {
   }
 };
 
-export const createTimeLabels = data => {
+const createTimeLabels = data => {
   const date = new Date(data);
   const dateString = date.toLocaleDateString();
   const timeString = date.toLocaleTimeString();
   return `${dateString}, ${timeString}`;
 };
+
+// Export Functions
+export { formatTicker, formatPrice, createTimeLabels };

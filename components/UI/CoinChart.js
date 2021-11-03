@@ -13,11 +13,11 @@ const CoinChart = props => {
   const [priceLabels, setPriceLabels] = useState();
 
   useEffect(() => {
-    // Local Arrays for Chart Data
+    // Arrays for chart data
     const timeLabelsData = [];
     const priceLabelsData = [];
 
-    // Loop through the data and push it into the local arrays above.
+    // Loop through the data and push it into the arrays above.
     if (data) {
       for (let i = 0; i <= data?.length; i += 10) {
         const timeData = data[i]?.timestamp;
@@ -31,12 +31,12 @@ const CoinChart = props => {
       }
     }
 
-    // Set the Local Array Data into the Local State
+    // Set the timeLabels and priceLabels arrays into the local state
     setTimeLabels(timeLabelsData);
     setPriceLabels(priceLabelsData);
   }, [data, setTimeLabels]);
 
-  // The finished chart object
+  // The finished chart object which uses the local state for data
   const chartData = {
     labels: timeLabels,
     datasets: [
