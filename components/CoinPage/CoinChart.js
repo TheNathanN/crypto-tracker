@@ -53,10 +53,38 @@ const CoinChart = props => {
     ],
   };
 
+  const chartOptions = {
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        display: false,
+      },
+    },
+    scales: {
+      y: {
+        ticks: {
+          color: 'white',
+        },
+        grid: {
+          borderColor: 'white',
+          color: 'white',
+        },
+      },
+      x: {
+        ticks: {
+          color: 'white',
+        },
+        grid: {
+          borderColor: 'white',
+        },
+      },
+    },
+  };
+
   return (
     <div className={styles['container']}>
       {timeLabels && priceLabels && (
-        <Line data={chartData} options={{ maintainAspectRatio: false }} />
+        <Line data={chartData} options={chartOptions} />
       )}
     </div>
   );
