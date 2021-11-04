@@ -1,12 +1,16 @@
 import { useEffect, useState } from 'react';
-import { formatPrice, createTimeLabels } from '../../helpers/helperFunctions';
 import { Line } from 'react-chartjs-2';
+import {
+  formatPrice,
+  createTimeLabels,
+  formatTicker,
+} from '../../helpers/helperFunctions';
 
 import styles from './CoinChart.module.scss';
 
 const CoinChart = props => {
   // Destructure Props
-  const { timePeriod, setTimePeriod, change } = props;
+  const { timePeriod, setTimePeriod, change, symbol } = props;
   const data = props?.coinHistory?.history;
 
   // Local State
@@ -24,7 +28,7 @@ const CoinChart = props => {
 
     // Loop through the data and push the data into the arrays above.
     if (data) {
-      for (let i = 0; i <= data?.length - 1; i += 5) {
+      for (let i = 0; i <= data?.length - 1; i += 1) {
         const timeData = data[i]?.timestamp;
         const priceData = data[i]?.price;
         if (timeData) {

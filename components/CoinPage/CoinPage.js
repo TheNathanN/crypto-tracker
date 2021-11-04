@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import CoinChart from './CoinChart';
-import { formatPrice, formatTicker } from '../../helpers/helperFunctions';
+import { formatPrice } from '../../helpers/helperFunctions';
 import { getCoinHistory } from '../../helpers/data-fetchers';
 
 import styles from './CoinPage.module.scss';
+import Stats from './Stats';
 
 const CoinPage = props => {
   // Destructure Props / Data
@@ -47,12 +48,17 @@ const CoinPage = props => {
 
   // Create stats object for mapping through the stats component
   const stats = [
-    { title: 'Rank', data: rank },
     { title: 'Market Cap', data: `$${formatNumberStats(marketCap)}` },
     { title: 'Volume', data: `$${formatNumberStats(volume)}` },
+    {
+      title: 'All Time High',
+      data: `$${formatPrice(allTimeHigh.price)}`,
+    },
     { title: 'Total Supply', data: `${formatNumberStats(totalSupply)}` },
-    { title: 'All Time High', data: `$${formatNumberStats(allTimeHigh)}` },
+    { title: 'Rank', data: rank },
   ];
+
+  console.log(links);
 
   return (
     <main className={styles['container']}>
@@ -65,12 +71,16 @@ const CoinPage = props => {
         timePeriod={timePeriod}
         setTimePeriod={setTimePeriod}
         change={change}
+        symbol={symbol}
       />
-      <div className={styles['stats']}>
-        {/* Create Stats Component HERE!!!*/}
+      <h2>Token Stats</h2>
+      <div className={styles['stats-container']}>
+        {stats.map(stat => (
+          <Stats stat={stat} key={stat.title} />
+        ))}
       </div>
       <div className={styles['details-container']}>
-        <h2>{name} Details</h2>
+        <h2>{name} Overview</h2>
         <div
           dangerouslySetInnerHTML={{ __html: description }}
           className={styles['description']}
