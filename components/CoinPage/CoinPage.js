@@ -20,7 +20,6 @@ const CoinPage = props => {
     rank,
     description,
     totalSupply,
-    history,
     volume,
     allTimeHigh,
     links,
@@ -41,6 +40,20 @@ const CoinPage = props => {
     return () => setCoinHistory();
   }, [getCoinHistory, id, timePeriod, setCoinHistory]);
 
+  // Function that formats the stats below
+  const formatNumberStats = stat => {
+    return Number(stat).toLocaleString();
+  };
+
+  // Create stats object for mapping through the stats component
+  const stats = [
+    { title: 'Rank', data: rank },
+    { title: 'Market Cap', data: `$${formatNumberStats(marketCap)}` },
+    { title: 'Volume', data: `$${formatNumberStats(volume)}` },
+    { title: 'Total Supply', data: `${formatNumberStats(totalSupply)}` },
+    { title: 'All Time High', data: `$${formatNumberStats(allTimeHigh)}` },
+  ];
+
   return (
     <main className={styles['container']}>
       <h1>{name}</h1>
@@ -54,8 +67,7 @@ const CoinPage = props => {
         change={change}
       />
       <div className={styles['stats']}>
-        <h4>Market Cap</h4>
-        <p>{`$${Number(marketCap).toLocaleString()}`}</p>
+        {/* Create Stats Component HERE!!!*/}
       </div>
       <div className={styles['details-container']}>
         <h2>{name} Details</h2>
