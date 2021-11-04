@@ -26,9 +26,6 @@ const CoinPage = props => {
     links,
   } = coin;
 
-  // Local Variables
-  const timeOptions = ['24h', '7d', '30d', '1y', '5y'];
-
   // Local State
   const [timePeriod, setTimePeriod] = useState('24h');
   const [coinHistory, setCoinHistory] = useState();
@@ -47,13 +44,26 @@ const CoinPage = props => {
   return (
     <main className={styles['container']}>
       <h1>{name}</h1>
+      <p className={styles['price']}>{`$${formatPrice(price)}`}</p>
       <CoinChart
         coinHistory={coinHistory}
         currentPrice={price}
         coinName={name}
         timePeriod={timePeriod}
         setTimePeriod={setTimePeriod}
+        change={change}
       />
+      <div className={styles['stats']}>
+        <h4>Market Cap</h4>
+        <p>{`$${Number(marketCap).toLocaleString()}`}</p>
+      </div>
+      <div className={styles['details-container']}>
+        <h2>{name} Details</h2>
+        <div
+          dangerouslySetInnerHTML={{ __html: description }}
+          className={styles['description']}
+        />
+      </div>
     </main>
   );
 };

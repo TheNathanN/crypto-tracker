@@ -7,8 +7,35 @@
   align-items: center;
 
   h1 {
+    font-size: 2.5rem;
     margin-top: 2.5rem;
     display: flex;
     align-items: center;
+  }
+
+  h2 {
+    border-bottom: 1px solid white;
+    padding-bottom: 0.5rem;
+  }
+}
+
+.price {
+  font-size: 1.5rem;
+}
+
+.details-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+
+  .description {
+    font-size: 0.9rem;
+    padding: 1rem;
+    h3 {
+      margin: 1.2rem 0;
+      text-align: center;
+    }
   }
 }

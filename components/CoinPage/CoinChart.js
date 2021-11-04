@@ -6,7 +6,7 @@ import styles from './CoinChart.module.scss';
 
 const CoinChart = props => {
   // Destructure Props
-  const { timePeriod, setTimePeriod } = props;
+  const { timePeriod, setTimePeriod, change } = props;
   const data = props?.coinHistory?.history;
 
   // Local State
@@ -22,9 +22,9 @@ const CoinChart = props => {
     const timeLabelsData = [];
     const priceLabelsData = [];
 
-    // Loop through the data and push it into the arrays above.
+    // Loop through the data and push the data into the arrays above.
     if (data) {
-      for (let i = 0; i <= data?.length - 1; i += 7) {
+      for (let i = 0; i <= data?.length - 1; i += 5) {
         const timeData = data[i]?.timestamp;
         const priceData = data[i]?.price;
         if (timeData) {
@@ -53,7 +53,7 @@ const CoinChart = props => {
         pointBorderColor: 'transparent',
         pointHoverBackgroundColor: 'red',
         pointHoverBorderColor: 'red',
-        pointBorderWidth: 20,
+        pointBorderWidth: 10,
       },
     ],
   };
