@@ -62,7 +62,11 @@ const CoinPage = props => {
     <main className={styles['container']}>
       <div className={styles['title-section']}>
         <h1>{name}</h1>
-        <p>{`$${formatPrice(price)}`}</p>
+        <p>{`$${
+          formatPrice(price) > 999.99
+            ? Number(formatPrice(price)).toLocaleString()
+            : formatPrice(price)
+        }`}</p>
       </div>
       <CoinChart
         coinHistory={coinHistory}

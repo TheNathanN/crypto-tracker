@@ -3,7 +3,7 @@ const formatPrice = price => {
   const number = Number(price);
   let formattedPrice;
 
-  if (number > 1.0) {
+  if (number > 0.8) {
     formattedPrice = number.toFixed(2);
   } else {
     formattedPrice = number.toFixed(8);

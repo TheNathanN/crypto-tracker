@@ -29,7 +29,11 @@ const CoinInfo = props => {
       <section className={styles['price-info']}>
         {change < 0 && <div className={styles['down']}>{change}%</div>}
         {change >= 0 && <div className={styles['up']}>{change}%</div>}
-        <div className={styles['price']}>{`$${formatPrice(price)}`}</div>
+        <div className={styles['price']}>{`$${
+          formatPrice(price) > 999.99
+            ? Number(formatPrice(price)).toLocaleString()
+            : formatPrice(price)
+        }`}</div>
       </section>
     </div>
   );
