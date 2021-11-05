@@ -48,14 +48,14 @@ const CoinPage = props => {
 
   // Create stats object for mapping through the stats component
   const stats = [
+    { title: 'Rank', data: rank },
     { title: 'Market Cap', data: `$${formatNumberStats(marketCap)}` },
     { title: 'Volume', data: `$${formatNumberStats(volume)}` },
     {
       title: 'All Time High',
-      data: `$${formatPrice(allTimeHigh.price)}`,
+      data: `$${Number(formatPrice(allTimeHigh.price)).toLocaleString()}`,
     },
     { title: 'Total Supply', data: `${formatNumberStats(totalSupply)}` },
-    { title: 'Rank', data: rank },
   ];
 
   return (

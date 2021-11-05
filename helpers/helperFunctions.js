@@ -3,13 +3,12 @@ const formatPrice = price => {
   const number = Number(price);
   let formattedPrice;
 
-  if (number > 0.001) {
+  if (number > 1.0) {
     formattedPrice = number.toFixed(2);
-    return Number(formattedPrice).toLocaleString();
   } else {
     formattedPrice = number.toFixed(8);
-    return formattedPrice.toLocaleString();
   }
+  return formattedPrice;
 };
 
 const formatTicker = ticker => {
