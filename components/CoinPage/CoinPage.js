@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import CoinChart from './CoinChart';
 import { formatPrice } from '../../helpers/helperFunctions';
 import { getCoinHistory } from '../../helpers/data-fetchers';
 
 import styles from './CoinPage.module.scss';
+import CoinChart from './CoinChart';
 import Stats from './Stats';
 
 const CoinPage = props => {
@@ -23,12 +23,12 @@ const CoinPage = props => {
     totalSupply,
     volume,
     allTimeHigh,
-    links,
   } = coin;
 
   // Local State
   const [timePeriod, setTimePeriod] = useState('24h');
   const [coinHistory, setCoinHistory] = useState();
+  const [showModal, setShowModal] = useState(true);
 
   // Fetch Coin History
   useEffect(() => {
@@ -58,12 +58,12 @@ const CoinPage = props => {
     { title: 'Rank', data: rank },
   ];
 
-  console.log(links);
-
   return (
     <main className={styles['container']}>
-      <h1>{name}</h1>
-      <p className={styles['price']}>{`$${formatPrice(price)}`}</p>
+      <div className={styles['title-section']}>
+        <h1>{name}</h1>
+        <p>{`$${formatPrice(price)}`}</p>
+      </div>
       <CoinChart
         coinHistory={coinHistory}
         currentPrice={price}
@@ -73,8 +73,8 @@ const CoinPage = props => {
         change={change}
         symbol={symbol}
       />
-      <h2>Token Stats</h2>
       <div className={styles['stats-container']}>
+        <h2>{name} Stats</h2>
         {stats.map(stat => (
           <Stats stat={stat} key={stat.title} />
         ))}
@@ -86,6 +86,7 @@ const CoinPage = props => {
           className={styles['description']}
         />
       </div>
+      <span className={styles['line']}></span>
     </main>
   );
 };

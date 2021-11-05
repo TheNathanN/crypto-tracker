@@ -6,13 +6,6 @@
   flex-direction: column;
   align-items: center;
 
-  h1 {
-    font-size: 2.5rem;
-    margin-top: 2.5rem;
-    display: flex;
-    align-items: center;
-  }
-
   h2 {
     border-bottom: 1px solid white;
     padding-bottom: 0.5rem;
@@ -20,8 +13,30 @@
   }
 }
 
-.price {
-  font-size: 1.5rem;
+.title-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 3rem 0 2.5rem;
+
+  h1 {
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+  }
+  p {
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+  }
+}
+
+.stats-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .details-container {
@@ -33,9 +48,17 @@
   .description {
     font-size: 0.9rem;
     padding: 0 1rem 1rem;
+    margin: 0.5rem 0;
     h3 {
       margin: 1.2rem 0;
       text-align: center;
     }
   }
+}
+
+.line {
+  width: 10rem;
+  border-bottom: 1px solid white;
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
 }

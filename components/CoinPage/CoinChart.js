@@ -16,9 +16,7 @@ const CoinChart = props => {
   // Local State
   const [timeLabels, setTimeLabels] = useState();
   const [priceLabels, setPriceLabels] = useState();
-
-  // Local Variables
-  const timeOptions = ['24h', '7d', '30d', '1y', '5y'];
+  const [priceIsUp, setPriceIsUp] = useState();
 
   // Fetch Data for Chart
   useEffect(() => {
@@ -45,7 +43,7 @@ const CoinChart = props => {
     setPriceLabels(priceLabelsData);
   }, [data, setTimeLabels]);
 
-  // The finished chart object which uses the local state for data
+  // The finished chart data
   const chartData = {
     labels: timeLabels,
     datasets: [
@@ -94,18 +92,18 @@ const CoinChart = props => {
   return (
     <div className={styles['container']}>
       <div className={styles['select-container']}>
-        <select
-          name='time'
-          id='time'
-          defaultValue={timePeriod}
-          onChange={e => setTimePeriod(e.target.value)}
-        >
-          {timeOptions.map(time => (
-            <option value={time} key={time}>
-              {time}
-            </option>
-          ))}
-        </select>
+        <div className={styles['chart-item']}>
+          <p>{formatTicker(symbol)}</p>
+        </div>
+        <div className={styles['chart-item-change']}>
+          {priceIsUp && <i className='fas fa-chevron-up'></i>}
+          {!priceIsUp && <i className='fas fa-chevron-down'></i>}
+          <p>{change}%</p>
+        </div>
+        <div className={styles['chart-item']}>
+          <p>{timePeriod}</p>
+          <i className='fas fa-angle-down'></i>
+        </div>
       </div>
       <div className={styles['chart-container']}>
         {timeLabels && priceLabels && (

@@ -5,11 +5,11 @@ const formatPrice = price => {
 
   if (number > 0.001) {
     formattedPrice = number.toFixed(2);
+    return Number(formattedPrice).toLocaleString();
   } else {
     formattedPrice = number.toFixed(8);
+    return formattedPrice.toLocaleString();
   }
-
-  return formattedPrice.toLocaleString();
 };
 
 const formatTicker = ticker => {
