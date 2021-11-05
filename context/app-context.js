@@ -1,23 +1,23 @@
 import { createContext } from 'react';
 
-let searchMode;
-let setSearchMode;
 let selectedCoin;
 let setSelectedCoin;
 let offsetVal;
 let setOffsetVal;
 let newsOffset;
 let setNewsOffset;
+let showModal;
+let setShowModal;
 
 const AppContext = createContext({
-  searchMode,
-  setSearchMode,
   selectedCoin,
   setSelectedCoin,
   offsetVal,
   setOffsetVal,
   newsOffset,
   setNewsOffset,
+  showModal,
+  setShowModal,
 });
 
 export default AppContext;

@@ -1,10 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { formatPrice } from '../../helpers/helperFunctions';
 import { getCoinHistory } from '../../helpers/data-fetchers';
 
-import styles from './CoinPage.module.scss';
+import AppContext from '../../context/app-context';
 import CoinChart from './CoinChart';
 import Stats from './Stats';
+
+import styles from './CoinPage.module.scss';
 
 const CoinPage = props => {
   // Destructure Props / Data
@@ -25,10 +27,12 @@ const CoinPage = props => {
     allTimeHigh,
   } = coin;
 
+  // Context / Global State
+  const { showModal } = useContext(AppContext);
+
   // Local State
   const [timePeriod, setTimePeriod] = useState('24h');
   const [coinHistory, setCoinHistory] = useState();
-  const [showModal, setShowModal] = useState(true);
 
   // Fetch Coin History
   useEffect(() => {

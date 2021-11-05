@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react';
-import { Line } from 'react-chartjs-2';
-import {
-  formatPrice,
-  createTimeLabels,
-  formatTicker,
-} from '../../helpers/helperFunctions';
+import { formatPrice, createTimeLabels } from '../../helpers/helperFunctions';
+
+import Chart from './Chart';
+import ChartHeader from './ChartHeader';
 
 import styles from './CoinChart.module.scss';
 
@@ -43,73 +41,21 @@ const CoinChart = props => {
     setPriceLabels(priceLabelsData);
   }, [data, setTimeLabels]);
 
-  // The finished chart data
-  const chartData = {
-    labels: timeLabels,
-    datasets: [
-      {
-        label: 'price/USD',
-        data: priceLabels,
-        borderColor: 'red',
-        pointBackgroundColor: 'transparent',
-        pointBorderColor: 'transparent',
-        pointHoverBackgroundColor: 'red',
-        pointHoverBorderColor: 'red',
-        pointBorderWidth: 10,
-      },
-    ],
-  };
-
-  const chartOptions = {
-    maintainAspectRatio: false,
-    plugins: {
-      legend: {
-        display: false,
-      },
-    },
-    scales: {
-      y: {
-        ticks: {
-          color: 'white',
-        },
-        grid: {
-          borderColor: 'white',
-          color: 'grey',
-        },
-      },
-      x: {
-        ticks: {
-          color: 'white',
-        },
-        grid: {
-          borderColor: 'white',
-          color: 'grey',
-        },
-      },
-    },
-  };
-
   return (
     <div className={styles['container']}>
-      <div className={styles['select-container']}>
-        <div className={styles['chart-item']}>
-          <p>{formatTicker(symbol)}</p>
-        </div>
-        <div className={styles['chart-item-change']}>
-          {priceIsUp && <i className='fas fa-chevron-up'></i>}
-          {!priceIsUp && <i className='fas fa-chevron-down'></i>}
-          <p>{change}%</p>
-        </div>
-        <div className={styles['chart-item']}>
-          <p>{timePeriod}</p>
-          <i className='fas fa-angle-down'></i>
-        </div>
-      </div>
-      <div className={styles['chart-container']}>
-        {timeLabels && priceLabels && (
-          <Line data={chartData} options={chartOptions} />
-        )}
-      </div>
+      <ChartHeader
+        symbol={symbol}
+        change={change}
+        timePeriod={timePeriod}
+        priceLabels={priceLabels}
+        priceIsUp={priceIsUp}
+        setPriceIsUp={setPriceIsUp}
+      />
+      <Chart
+        timeLabels={timeLabels}
+        priceLabels={priceLabels}
+        priceIsUp={priceIsUp}
+      />
     </div>
   );
 };
