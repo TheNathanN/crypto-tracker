@@ -9,13 +9,15 @@ import styles from './CoinSection.module.scss';
 
 const CoinSection = () => {
   // Context - Global State
-  const { offsetVal } = useContext(AppContext);
+  const { offsetVal, setTimePeriod } = useContext(AppContext);
 
   // Local State
   const [coinsData, setCoinsData] = useState();
 
   // Fetch Data
   useEffect(() => {
+    setTimePeriod('24h');
+
     const _END_POINT = 'offset';
 
     try {

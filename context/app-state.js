@@ -5,6 +5,7 @@ const AppState = props => {
   const [offsetVal, setOffsetVal] = useState(0); // Changes the page of the main page
   const [newsOffset, setNewsOffset] = useState(0); // Changes the page of the news page
   const [showModal, setShowModal] = useState(false);
+  const [timePeriod, setTimePeriod] = useState('24h');
 
   return (
     <AppContext.Provider
@@ -15,6 +16,8 @@ const AppState = props => {
         setNewsOffset,
         showModal,
         setShowModal,
+        timePeriod,
+        setTimePeriod,
       }}
     >
       {props.children}

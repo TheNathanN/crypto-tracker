@@ -8,6 +8,8 @@ let newsOffset;
 let setNewsOffset;
 let showModal;
 let setShowModal;
+let timePeriod;
+let setTimePeriod;
 
 const AppContext = createContext({
   selectedCoin,
@@ -18,6 +20,8 @@ const AppContext = createContext({
   setNewsOffset,
   showModal,
   setShowModal,
+  timePeriod,
+  setTimePeriod,
 });
 
 export default AppContext;

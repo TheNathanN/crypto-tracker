@@ -9,6 +9,7 @@
   height: 100vh;
   position: absolute;
   background-color: rgba(0, 0, 0, 0.842);
+  z-index: 1;
 }
 
 .modal-container {
@@ -24,5 +25,17 @@
     color: black;
     position: absolute;
     background-color: white;
+    width: 10rem;
+    height: 13rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+
+    .options {
+      margin: 0.5rem 0;
+      padding: 0.2rem;
+    }
   }
 }

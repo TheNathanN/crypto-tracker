@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { formatPrice, createTimeLabels } from '../../helpers/helperFunctions';
 
+import AppContext from '../../context/app-context';
 import Chart from './Chart';
 import ChartHeader from './ChartHeader';
 
@@ -8,8 +9,11 @@ import styles from './CoinChart.module.scss';
 
 const CoinChart = props => {
   // Destructure Props
-  const { timePeriod, setTimePeriod, change, symbol } = props;
+  const { change, symbol } = props;
   const data = props?.coinHistory?.history;
+
+  // Context / Global State
+  const { timePeriod } = useContext(AppContext);
 
   // Local State
   const [timeLabels, setTimeLabels] = useState();
@@ -46,7 +50,6 @@ const CoinChart = props => {
       <ChartHeader
         symbol={symbol}
         change={change}
-        timePeriod={timePeriod}
         priceLabels={priceLabels}
         priceIsUp={priceIsUp}
         setPriceIsUp={setPriceIsUp}

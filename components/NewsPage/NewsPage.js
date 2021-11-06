@@ -9,14 +9,21 @@ import styles from './NewsPage.module.scss';
 
 const NewsPage = () => {
   // Context / Global State
-  const { newsOffset } = useContext(AppContext);
+  const { newsOffset, setTimePeriod } = useContext(AppContext);
 
   // Local State
   const [newsData, setNewsData] = useState();
 
   // Fetch Data
   useEffect(() => {
-    getNewsData(newsOffset, setNewsData);
+    setTimePeriod('24h');
+
+    try {
+      getNewsData(newsOffset, setNewsData);
+    } catch (error) {
+      console.log(error);
+    }
+
     return () => setNewsData();
   }, [getNewsData, setNewsData, newsOffset]);
 

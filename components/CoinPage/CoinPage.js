@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { formatPrice } from '../../helpers/helperFunctions';
 import { getCoinHistory } from '../../helpers/data-fetchers';
 
+import AppContext from '../../context/app-context';
 import CoinChart from './CoinChart';
 import Stats from './Stats';
 
@@ -26,8 +27,10 @@ const CoinPage = props => {
     allTimeHigh,
   } = coin;
 
+  // Context / Global State
+  const { timePeriod } = useContext(AppContext);
+
   // Local State
-  const [timePeriod, setTimePeriod] = useState('24h');
   const [coinHistory, setCoinHistory] = useState();
 
   // Fetch Coin History
@@ -72,8 +75,6 @@ const CoinPage = props => {
         coinHistory={coinHistory}
         currentPrice={price}
         coinName={name}
-        timePeriod={timePeriod}
-        setTimePeriod={setTimePeriod}
         change={change}
         symbol={symbol}
       />

@@ -42,8 +42,8 @@ const Coin = () => {
           : { width: '100%' }
       }
     >
-      {!responseData && <div className={styles['loading']}>Loading...</div>}
       {showModal && <TimePeriodModal />}
+      {!responseData && <div className={styles['loading']}>Loading...</div>}
       {responseData && responseData.status === 'success' && (
         <CoinPage coinData={responseData} />
       )}

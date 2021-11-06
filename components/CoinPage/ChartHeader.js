@@ -7,11 +7,10 @@ import styles from './ChartHeader.module.scss';
 
 const ChartHeader = props => {
   // Destructure Props
-  const { symbol, change, timePeriod, priceLabels, priceIsUp, setPriceIsUp } =
-    props;
+  const { symbol, change, priceLabels, priceIsUp, setPriceIsUp } = props;
 
   // Context / Global State
-  const { setShowModal } = useContext(AppContext);
+  const { setShowModal, timePeriod } = useContext(AppContext);
 
   useEffect(() => {
     // Function to get the last index of priceLabels

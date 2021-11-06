@@ -7,7 +7,7 @@ import styles from './MobileMenu.module.scss';
 
 const MobileMenu = () => {
   // Context / Global State
-  const { setOffsetVal, setNewsOffset } = useContext(AppContext);
+  const { setOffsetVal, setNewsOffset, setShowModal } = useContext(AppContext);
 
   // Router
   const router = useRouter();
@@ -19,6 +19,7 @@ const MobileMenu = () => {
     setOffsetVal(0);
     setNewsOffset(0);
     router.push(route);
+    setShowModal(false);
   };
 
   return (
