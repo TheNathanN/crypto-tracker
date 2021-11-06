@@ -17,7 +17,7 @@ const ChartHeader = props => {
     // Function to get the last index of priceLabels
     const getLastIndex = array => array.length - 1;
 
-    // Check if priceIsUp
+    // Check if priceIsUp by comparing the first and last price labels
     if (
       priceLabels &&
       priceLabels[0] < priceLabels[getLastIndex(priceLabels)]
