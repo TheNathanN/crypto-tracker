@@ -10,7 +10,9 @@ const TimePeriodModal = () => {
 
   return (
     <div className={styles['container']}>
-      <div className={styles['modal']}>Time Period Modal</div>
+      <div className={styles['modal-container']}>
+        <div className={styles['modal']}>Time Period Modal</div>
+      </div>
       <div
         className={styles['background']}
         onClick={() => setShowModal(false)}

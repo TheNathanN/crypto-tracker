@@ -11,9 +11,18 @@
   background-color: rgba(0, 0, 0, 0.842);
 }
 
-.modal {
-  color: black;
+.modal-container {
   position: absolute;
-  background-color: white;
-  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .modal {
+    z-index: 2;
+    color: black;
+    position: absolute;
+    background-color: white;
+  }
 }

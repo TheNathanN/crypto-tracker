@@ -5,6 +5,7 @@ import { getCoinData } from '../helpers/data-fetchers';
 import AppContext from '../context/app-context';
 import ErrorPage from './error';
 import CoinPage from '../components/CoinPage/CoinPage';
+import MobileMenu from '../components/MobileMenu/MobileMenu';
 
 import styles from '../styles/coinRank.module.scss';
 import TimePeriodModal from '../components/CoinPage/TimePeriodModal';
@@ -34,22 +35,21 @@ const Coin = () => {
   }, [getCoinData, coinRank, setResponseData]);
 
   return (
-    <>
-      <div
-        style={
-          showModal
-            ? { height: '100vh', overflow: 'hidden', position: 'relative' }
-            : { width: '100%' }
-        }
-      >
-        {!responseData && <div className={styles['loading']}>Loading...</div>}
-        {showModal && <TimePeriodModal />}
-        {responseData && responseData.status === 'success' && (
-          <CoinPage coinData={responseData} />
-        )}
-        {responseData && responseData.status === 'fail' && <ErrorPage />}
-      </div>
-    </>
+    <div
+      style={
+        showModal
+          ? { height: '100vh', overflow: 'hidden', position: 'relative' }
+          : { width: '100%' }
+      }
+    >
+      {!responseData && <div className={styles['loading']}>Loading...</div>}
+      {showModal && <TimePeriodModal />}
+      {responseData && responseData.status === 'success' && (
+        <CoinPage coinData={responseData} />
+      )}
+      {responseData && responseData.status === 'fail' && <ErrorPage />}
+      <MobileMenu />
+    </div>
   );
 };
 
