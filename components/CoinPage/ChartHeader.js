@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { formatTicker } from '../../helpers/helperFunctions';
 
 import AppContext from '../../context/app-context';
@@ -11,6 +11,9 @@ const ChartHeader = props => {
 
   // Context / Global State
   const { setShowModal, timePeriod } = useContext(AppContext);
+
+  // Local State
+  const [currentChange, setCurrentChange] = useState('NaN');
 
   useEffect(() => {
     // Function to get the last index of priceLabels
@@ -25,7 +28,18 @@ const ChartHeader = props => {
     } else {
       setPriceIsUp(false);
     }
-  }, [priceLabels, setPriceIsUp]);
+
+    // Set the % change between first and last price labesl
+    if (priceLabels && timePeriod !== '24h') {
+      const currentPriceDiff =
+        priceLabels[getLastIndex(priceLabels)] - priceLabels[0];
+      setCurrentChange(((currentPriceDiff / priceLabels[0]) * 100).toFixed(2));
+    } else {
+      setCurrentChange(change.toFixed(2));
+    }
+  }, [priceLabels, setPriceIsUp, setCurrentChange, timePeriod]);
+
+  console.log(currentChange);
 
   return (
     <div className={styles['select-container']}>
@@ -34,7 +48,9 @@ const ChartHeader = props => {
       </div>
       <div className={styles['chart-item']}>
         <p style={priceIsUp ? { color: 'green' } : { color: 'red' }}>
-          {change}%
+          {currentChange === 'NaN'
+            ? ' '
+            : `${Number(currentChange).toLocaleString()}%`}
         </p>
       </div>
       <div className={styles['chart-item']} onClick={() => setShowModal(true)}>
