@@ -1,6 +1,3 @@
-import { useContext } from 'react';
-
-import AppContext from '../context/app-context';
 import MainPage from '../components/MainPage/MainPage';
 import MobileMenu from '../components/MobileMenu/MobileMenu';
 
