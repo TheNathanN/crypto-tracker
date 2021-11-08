@@ -36,6 +36,11 @@
     .options {
       margin: 0.5rem 0;
       padding: 0.2rem;
+      cursor: pointer;
+
+      &:hover {
+        color: gray;
+      }
     }
   }
 }
