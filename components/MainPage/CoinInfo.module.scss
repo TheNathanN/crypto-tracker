@@ -36,24 +36,22 @@
     }
 
     .image {
-      margin-right: 0.8rem;
-      background-color: white;
-      box-shadow: 1px 1px 2px lightgrey;
+      margin: 0 0.8rem;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 1.3rem;
-      width: 1.3rem;
+      width: 2rem;
 
       img {
-        width: 1.2rem;
+        width: 100%;
       }
     }
 
     .name {
       display: flex;
       justify-content: flex-start;
-      width: 5rem;
+      flex-wrap: wrap;
+      width: 100%;
       text-align: left;
       height: 100%;
       margin-right: 0.3rem;

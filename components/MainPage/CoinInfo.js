@@ -21,7 +21,7 @@ const CoinInfo = props => {
       <section className={styles['coin-info']}>
         <div className={styles['rank']}>{rank}</div>
         <div className={styles['image']}>
-          <Image src={iconUrl} width={10} height={10} alt={name} />
+          <Image src={iconUrl} width={20} height={20} alt={name} />
         </div>
         <div className={styles['name']}>{name}</div>
         <div className={styles['ticker']}>{formatTicker(symbol)}</div>
