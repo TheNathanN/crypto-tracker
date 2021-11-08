@@ -2,18 +2,18 @@
 
 .container {
   padding: 0.5rem 0rem;
-  margin-top: 1rem;
+  margin: 1rem 1.5rem 0;
   display: flex;
   justify-content: flex-end;
-  border-top: 2px solid var(--border-color);
-  border-bottom: 2px solid var(--border-color);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
 
   .buttons-box {
     display: flex;
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    padding: 0 1.5rem;
+    
 
     button {
       color: var(--border-color);
