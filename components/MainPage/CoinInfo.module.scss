@@ -25,7 +25,7 @@
 
   .coin-info {
     display: flex;
-    width: 50%;
+    width: 55%;
     justify-content: space-between;
     align-items: center;
 
@@ -41,10 +41,6 @@
       justify-content: flex-start;
       align-items: center;
       width: 2rem;
-
-      img {
-        width: 100%;
-      }
     }
 
     .name {
@@ -69,7 +65,7 @@
 
   .price-info {
     display: flex;
-    width: 50%;
+    width: 45%;
     justify-content: space-between;
     align-items: center;
 
@@ -102,14 +98,14 @@
 @media only screen and (max-width: 410px) {
   .container {
     .coin-info {
-      width: 40%;
+      width: 45%;
       .name {
         display: none;
       }
     }
 
     .price-info {
-      width: 60%;
+      width: 55%;
     }
   }
 }
