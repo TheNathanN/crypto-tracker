@@ -1,8 +1,10 @@
 .container {
-  width: 100%;
+  width: 90%;
+  max-width: 911px;
+}
 
+.coin-container {
   div:last-child {
     border-bottom: none;
-    padding-bottom: 0;
   }
 }

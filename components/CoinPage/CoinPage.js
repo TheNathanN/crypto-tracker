@@ -63,35 +63,36 @@ const CoinPage = props => {
 
   return (
     <main className={styles['container']}>
-      <div className={styles['title-section']}>
-        <h1>{name}</h1>
-        <p>{`$${
-          formatPrice(price) > 999.99
-            ? Number(formatPrice(price)).toLocaleString()
-            : formatPrice(price)
-        }`}</p>
-      </div>
-      <CoinChart
-        coinHistory={coinHistory}
-        currentPrice={price}
-        coinName={name}
-        change={change}
-        symbol={symbol}
-      />
-      <div className={styles['stats-container']}>
-        <h2>{name} Stats</h2>
-        {stats.map(stat => (
-          <Stats stat={stat} key={stat.title} />
-        ))}
-      </div>
-      <div className={styles['details-container']}>
-        <h2>{name} Overview</h2>
-        <div
-          dangerouslySetInnerHTML={{ __html: description }}
-          className={styles['description']}
+      <div className={styles['section-container']}>
+        <div className={styles['title-section']}>
+          <h1>{name}</h1>
+          <p>{`$${
+            formatPrice(price) > 999.99
+              ? Number(formatPrice(price)).toLocaleString()
+              : formatPrice(price)
+          }`}</p>
+        </div>
+        <CoinChart
+          coinHistory={coinHistory}
+          currentPrice={price}
+          coinName={name}
+          change={change}
+          symbol={symbol}
         />
+        <div className={styles['stats-container']}>
+          <h2>{name} Stats</h2>
+          {stats.map(stat => (
+            <Stats stat={stat} key={stat.title} />
+          ))}
+        </div>
+        <div className={styles['details-container']}>
+          <h2>{name} Overview</h2>
+          <div
+            dangerouslySetInnerHTML={{ __html: description }}
+            className={styles['description']}
+          />
+        </div>
       </div>
-      <span className={styles['line']}></span>
     </main>
   );
 };
