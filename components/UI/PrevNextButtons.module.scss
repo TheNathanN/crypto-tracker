@@ -4,8 +4,11 @@
   padding: 1rem 0rem;
   display: flex;
   justify-content: flex-end;
-  border-top: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
+
+  &:last-child {
+    border-bottom: none;
+  }
 
   .buttons-box {
     display: flex;
