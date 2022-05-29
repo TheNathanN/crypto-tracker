@@ -1,8 +1,3 @@
-//Local Variables
-const API_KEY = process.env.API_KEY;
-const COINRANK_KEY = process.env.COINRANK_KEY;
-const BING_HOST = process.env.BING_HOST;
-
 // Fetch Single Coin Data
 const getCoinData = async (id, state) => {
   const response = await fetch(`/api/coin?id=${id}`);
@@ -66,18 +61,7 @@ const getStats = async (state, dataWanted) => {
 
 // Fetch News Data
 const getNewsData = async (offset, state) => {
-  const response = await fetch(
-    `https://bing-news-search1.p.rapidapi.com/news/search?q=crypto&freshness=Day&textFormat=Raw&safeSearch=Off&offset=${offset}`,
-    {
-      method: 'GET',
-      headers: {
-        'x-bingapis-sdk': 'true',
-        'x-rapidapi-host': BING_HOST,
-        'x-rapidapi-key': API_KEY,
-      },
-    }
-  );
-
+  const response = await fetch(`/api/news?offset=${offset}`);
   const resData = await response.json();
   state(resData.value);
 };
