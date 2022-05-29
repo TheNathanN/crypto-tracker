@@ -9,9 +9,9 @@ const TimePeriodModal = () => {
   const { setShowModal, timePeriod, setTimePeriod } = useContext(AppContext);
 
   // Time period options
-  const timePeriodOptions = ['24h', '7d', '30d', '1y', '5y'];
+  const timePeriodOptions = ['24h', '7d', '30d', '1y'];
 
-  // Click Handeler
+  // Click Handler
   const selectHandler = option => {
     setTimePeriod(option);
     setShowModal(false);
