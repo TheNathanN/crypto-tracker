@@ -13,7 +13,7 @@ import TimePeriodModal from '../components/CoinPage/TimePeriodModal';
 const Coin = () => {
   // Router
   const router = useRouter();
-  const { coinRank } = router.query;
+  const { coinId } = router.query;
 
   // Context / Global State
   const { showModal } = useContext(AppContext);
@@ -24,7 +24,7 @@ const Coin = () => {
   // Fetch Coin Data
   useEffect(() => {
     try {
-      getCoinData(coinRank, setResponseData);
+      getCoinData(coinId, setResponseData);
     } catch (error) {
       console.log(error);
     }
@@ -32,7 +32,7 @@ const Coin = () => {
     return () => {
       setResponseData();
     };
-  }, [getCoinData, coinRank, setResponseData]);
+  }, [getCoinData, coinId, setResponseData]);
 
   return (
     <div

@@ -37,7 +37,7 @@ const CoinSection = () => {
         style={{ height: !coinsData ? '100vh' : '100%' }}
       >
         {coinsData &&
-          coinsData.map(coin => <CoinInfo key={coin.id} coinInfo={coin} />)}
+          coinsData.map(coin => <CoinInfo key={coin.uuid} coinInfo={coin} />)}
       </section>
       <PrevNextButtons />
     </div>

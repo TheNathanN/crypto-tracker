@@ -15,15 +15,14 @@ const CoinPage = props => {
   const { coin } = data;
   const {
     name,
-    id,
+    uuid,
     symbol,
     marketCap,
     change,
     price,
     rank,
     description,
-    totalSupply,
-    volume,
+    supply,
     allTimeHigh,
   } = coin;
 
@@ -36,13 +35,13 @@ const CoinPage = props => {
   // Fetch Coin History
   useEffect(() => {
     try {
-      getCoinHistory(id, timePeriod, setCoinHistory);
+      getCoinHistory(uuid, timePeriod, setCoinHistory);
     } catch (error) {
       console.log(error);
     }
 
     return () => setCoinHistory();
-  }, [getCoinHistory, id, timePeriod, setCoinHistory]);
+  }, [getCoinHistory, uuid, timePeriod, setCoinHistory]);
 
   // Function that formats the stats below
   const formatNumberStats = stat => {
@@ -53,12 +52,15 @@ const CoinPage = props => {
   const stats = [
     { title: 'Rank', data: rank },
     { title: 'Market Cap', data: `$${formatNumberStats(marketCap)}` },
-    { title: 'Volume', data: `$${formatNumberStats(volume)}` },
+    { title: 'Volume', data: `$${formatNumberStats(coin['24hVolume'])}` },
     {
       title: 'All Time High',
-      data: `$${Number(formatPrice(allTimeHigh.price)).toLocaleString()}`,
+      data: `$${formatNumberStats(formatPrice(allTimeHigh.price))}`,
     },
-    { title: 'Total Supply', data: `${formatNumberStats(totalSupply)}` },
+    {
+      title: 'Total Supply',
+      data: `${formatNumberStats(Number(supply.total).toFixed(0))}`,
+    },
   ];
 
   return (
@@ -76,7 +78,7 @@ const CoinPage = props => {
           coinHistory={coinHistory}
           currentPrice={price}
           coinName={name}
-          change={change}
+          change={+change}
           symbol={symbol}
         />
         <div className={styles['stats-container']}>

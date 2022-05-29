@@ -9,11 +9,11 @@ const CoinInfo = props => {
 
   // Import Props
   const { coinInfo } = props;
-  const { id, rank, name, symbol, price, change, type, iconUrl } = coinInfo;
+  const { uuid, rank, name, symbol, price, change, iconUrl } = coinInfo;
 
   // onClick Functions
   const clickHandler = () => {
-    router.push(`/${id}`);
+    router.push(`/${uuid}`);
   };
 
   return (

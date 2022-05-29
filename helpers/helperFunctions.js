@@ -21,7 +21,7 @@ const formatTicker = ticker => {
 };
 
 const createTimeLabels = (data, chartContext) => {
-  const date = new Date(data);
+  const date = new Date(data * 1000);
   const dateString = date.toLocaleDateString();
   const timeString = date.toLocaleTimeString();
 

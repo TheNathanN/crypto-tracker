@@ -39,8 +39,6 @@ const ChartHeader = props => {
     }
   }, [priceLabels, setPriceIsUp, setCurrentChange, timePeriod]);
 
-  console.log(currentChange);
-
   return (
     <div className={styles['select-container']}>
       <div className={styles['chart-item']}>

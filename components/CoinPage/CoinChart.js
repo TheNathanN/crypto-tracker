@@ -41,8 +41,8 @@ const CoinChart = props => {
     }
 
     // Set the timeLabels and priceLabels arrays into the local state
-    setTimeLabels(timeLabelsData);
-    setPriceLabels(priceLabelsData);
+    setTimeLabels(timeLabelsData.reverse());
+    setPriceLabels(priceLabelsData.reverse());
   }, [data, setTimeLabels]);
 
   return (

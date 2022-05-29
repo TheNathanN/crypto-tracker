@@ -1,59 +1,28 @@
 //Local Variables
-const HOST_KEY = process.env.COINRANK_HOST;
-const API_KEY = process.env.COINRANK_KEY;
+const API_KEY = process.env.API_KEY;
+const COINRANK_KEY = process.env.COINRANK_KEY;
 const BING_HOST = process.env.BING_HOST;
 
 // Fetch Single Coin Data
 const getCoinData = async (id, state) => {
-  if (id) {
-    const response = await fetch(
-      `https://coinranking1.p.rapidapi.com/coin/${id}`,
-      {
-        method: 'GET',
-        headers: {
-          'x-rapidapi-host': HOST_KEY,
-          'x-rapidapi-key': API_KEY,
-        },
-      }
-    );
-    const resData = await response.json();
-    state(resData);
-  } else {
-    return;
-  }
+  const response = await fetch(`/api/coin?id=${id}`);
+  const resData = await response.json();
+  state(resData);
 };
 
 // Fetch Single Coin Price History
 const getCoinHistory = async (id, timePeriod, state) => {
-  if (id) {
-    const response = await fetch(
-      `https://coinranking1.p.rapidapi.com/coin/${id}/history/${timePeriod}`,
-      {
-        method: 'GET',
-        headers: {
-          'x-rapidapi-host': HOST_KEY,
-          'x-rapidapi-key': API_KEY,
-        },
-      }
-    );
-    const resData = await response.json();
-    state(resData.data);
-  } else {
-    return;
-  }
+  const response = await fetch(
+    `/api/coinHistory?id=${id}&timePeriod=${timePeriod}`
+  );
+  const resData = await response.json();
+  state(resData.data);
 };
 
 // Fetch Coins Data
 const getCoinsData = async (endpoint, value, state) => {
   const response = await fetch(
-    `https://coinranking1.p.rapidapi.com/coins?${endpoint}=${value}`,
-    {
-      method: 'GET',
-      headers: {
-        'x-rapidapi-host': HOST_KEY,
-        'x-rapidapi-key': API_KEY,
-      },
-    }
+    `/api/coins?endpoint=${endpoint}&value=${value}`
   );
   const resData = await response.json();
   state(resData.data.coins);
@@ -68,13 +37,8 @@ const getStats = async (state, dataWanted) => {
   const _marketCap = '_MARKET_CAP';
   const _markets = '_MARKETS';
 
-  const response = await fetch('https://coinranking1.p.rapidapi.com/stats', {
-    method: 'GET',
-    headers: {
-      'x-rapidapi-host': HOST_KEY,
-      'x-rapidapi-key': API_KEY,
-    },
-  });
+  // Fetch Data
+  const response = await fetch('/api/stats');
 
   // Set State of Data
   const resData = await response.json();
