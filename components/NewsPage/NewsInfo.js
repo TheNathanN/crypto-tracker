@@ -6,7 +6,7 @@ import styles from './NewsInfo.module.scss';
 const NewsInfo = props => {
   // Import and Destructure Props from NewsSection
   const { articleData } = props;
-  const { name, image, url, datePublished } = articleData;
+  const { name, image, url } = articleData;
   let imageUrl;
   if (image) {
     const { contentUrl } = image.thumbnail;

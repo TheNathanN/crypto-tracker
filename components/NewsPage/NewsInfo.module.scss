@@ -4,18 +4,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid var(--border-color);
-  margin: 1rem;
+  margin: 2rem 1rem;
   padding: 0 1rem;
   cursor: pointer;
-
-  &:hover {
-    color: var(--hover-color);
-    border: 2px solid var(--hover-color);
-    p {
-      border-left: 1px solid var(--hover-color);
-    }
-  }
+  transition: all 0.3s ease-out;
+  border-radius: 5px;
+  border: 1px solid var(--border-color);
 
   p {
     font-size: 1.1rem;
@@ -26,7 +20,18 @@
     margin-left: 1rem;
     padding-left: 1rem;
     border-left: 1px solid var(--border-color);
-    height: 80%;
+    height: 100%;
+    transition: all 0.35s ease-out;
+  }
+
+  &:hover {
+    border: 2px solid var(--hover-color);
+    background-color: var(--border-color);
+    p {
+      color: var(--hover-color);
+      border-left: 1px solid var(--hover-color);
+      height: 80%;
+    }
   }
 }
 

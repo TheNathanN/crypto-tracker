@@ -20,16 +20,18 @@ const ChartHeader = props => {
     const getLastIndex = array => array.length - 1;
 
     // Check if priceIsUp by comparing the first and last price labels
-    if (
-      priceLabels &&
-      priceLabels[0] < priceLabels[getLastIndex(priceLabels)]
-    ) {
-      setPriceIsUp(true);
-    } else {
-      setPriceIsUp(false);
+
+    if (priceLabels && priceLabels.length > 0) {
+      if (
+        Number(priceLabels[0]) < Number(priceLabels[getLastIndex(priceLabels)])
+      ) {
+        setPriceIsUp(true);
+      } else {
+        setPriceIsUp(false);
+      }
     }
 
-    // Set the % change between first and last price labesl
+    // Set the % change between first and last price labels
     if (priceLabels && timePeriod !== '24h') {
       const currentPriceDiff =
         priceLabels[getLastIndex(priceLabels)] - priceLabels[0];
@@ -38,6 +40,7 @@ const ChartHeader = props => {
       setCurrentChange(change.toFixed(2));
     }
   }, [priceLabels, setPriceIsUp, setCurrentChange, timePeriod]);
+  console.log(priceIsUp);
 
   return (
     <div className={styles['select-container']}>

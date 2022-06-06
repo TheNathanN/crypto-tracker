@@ -16,8 +16,8 @@ const CoinChart = props => {
   const { timePeriod } = useContext(AppContext);
 
   // Local State
-  const [timeLabels, setTimeLabels] = useState();
-  const [priceLabels, setPriceLabels] = useState();
+  const [timeLabels, setTimeLabels] = useState([]);
+  const [priceLabels, setPriceLabels] = useState([]);
   const [priceIsUp, setPriceIsUp] = useState();
 
   // Fetch Data for Chart
