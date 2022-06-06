@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }) {
           name='description'
           content='A web app to help keep you updated on crypto prices.'
         />
-        <link rel='icon' href='/favicon.ico' />
+        <link rel='icon' href='/coin.gif' />
         <link
           rel='stylesheet'
           href='https://use.fontawesome.com/releases/v5.15.4/css/all.css'
