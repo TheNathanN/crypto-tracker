@@ -12,9 +12,9 @@
 ### The challenge
 
 - Create a dashboard that displays a list of cryptocurrencies
-- The dashboard should show all the Total Market Cap of all of the cryptocurrencies
+- The dashboard should show the Total Market Cap of all of the cryptocurrencies
 - There should be no more than 50 cryptocurrencies shown on the dashboard
-- There should be a news section that shows all of the recent news in the crypto space
+- There should be a section that shows recent news in the crypto space
 
 ## Built with
 
